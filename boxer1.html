@@ -61,23 +61,45 @@
       align-items: center;
     }
 
-    .product-image {
-      width: 100%;
-      min-height: 520px;
-      background: #eeeeee;
-      border-radius: 12px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #888;
-      font-size: 20px;
-    }
+    .product-gallery {
+  width: 100%;
+}
 
-    .product-image img {
+.main-image {
+  width: 100%;
+  height: 520px;
+  background: #eeeeee;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.main-image img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  border-radius: 12px;
+}
+
+.thumbnails {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.thumbnails img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.thumbnails img:hover {
+  border: 2px solid #d4af37;
 }
 
     .product-info h1 {
@@ -190,8 +212,19 @@
 
 <main class="product-page">
 
-  <div class="product-image">
-  <img src="psd-looney-front.jpg" alt="PSD Looney Tunes Boxer Briefs Front">
+  <div class="product-gallery">
+
+  <div class="main-image">
+    <img id="mainProductImage" src="psd-looney-front.jpg" alt="PSD Looney Tunes Boxer Briefs">
+  </div>
+
+  <div class="thumbnails">
+    <img src="psd-looney-front.jpg" onclick="document.getElementById('mainProductImage').src=this.src">
+    <img src="psd-looney-back.jpg" onclick="document.getElementById('mainProductImage').src=this.src">
+    <img src="psd-looney-tag-front.jpg" onclick="document.getElementById('mainProductImage').src=this.src">
+    <img src="psd-looney-tag-back.jpg" onclick="document.getElementById('mainProductImage').src=this.src">
+  </div>
+
 </div>
 
 
