@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boxers | First Class Supply</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      color: #111;
+    }
+
+    header {
+      background: #000;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .logo {
+      width: 230px;
+      max-width: 80%;
+      margin-bottom: 20px;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .menu a {
+      color: #d4af37;
+      text-decoration: none;
+      border: 2px solid #d4af37;
+      padding: 12px 25px;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .menu a:hover {
+      background: #d4af37;
+      color: #000;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #666;
+      font-size: 18px;
+    }
+
+    .products {
+      max-width: 1200px;
+      margin: auto;
+      padding: 30px 20px 70px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .product {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 300px;
+      background: #f1f1f1;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    .product h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .shipping {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #000;
+      color: #d4af37;
+      text-decoration: none;
+      padding: 13px 30px;
+      border-radius: 6px;
+      font-weight: bold;
+      border: 2px solid #000;
+    }
+
+    .button:hover {
+      background: #d4af37;
+      color: #000;
+      border-color: #d4af37;
+    }
+
+    footer {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 25px;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .menu a {
+        padding: 10px 15px;
+        font-size: 14px;
+      }
+
+      .product-image {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a href="index.html">
+      <img src="first.PNG" alt="First Class Supply" class="logo">
+    </a>
+
+    <nav class="menu">
+      <a href="boxers.html">BOXERS</a>
+      <a href="pants.html">PANTS</a>
+      <a href="tshirts.html">T-SHIRTS</a>
+      <a href="combos.html">COMBOS</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Boxers</h1>
+    <p>Premium styles at prices you'll love.</p>
+  </section>
+
+  <section class="products">
+    <div class="product-grid">
+
+      <div class="product">
+
+        <div class="product-image">
+          Product Image
+        </div>
+
+        <h2>PSD Looney Tunes Boxer Briefs</h2>
+
+        <p class="price">$19.99</p>
+
+        <p class="shipping">
+          + $7 Standard Shipping<br>
+          Free Local Pickup / Delivery – South Florida
+        </p>
+
+        <a href="#" class="button">VIEW PRODUCT</a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 First Class Supply. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
