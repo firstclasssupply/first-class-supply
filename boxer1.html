@@ -56,9 +56,6 @@
       color: #000;
     }
 
-
-    /* PRODUCT PAGE */
-
     .product-page {
       max-width: 1200px;
       margin: auto;
@@ -72,9 +69,6 @@
     .product-gallery {
       width: 100%;
     }
-
-
-    /* MAIN IMAGE */
 
     .main-image {
       width: 100%;
@@ -97,19 +91,11 @@
       transform-origin: center center;
     }
 
-
-    /* COMPUTER ZOOM */
-
     @media (min-width: 801px) {
-
       .main-image.zooming img {
         transform: scale(2.4);
       }
-
     }
-
-
-    /* THUMBNAILS */
 
     .thumbnails {
       display: grid;
@@ -130,9 +116,6 @@
     .thumbnails img:hover {
       border: 2px solid #d4af37;
     }
-
-
-    /* PRODUCT INFORMATION */
 
     .product-info h1 {
       font-size: 42px;
@@ -195,8 +178,7 @@
       font-weight: bold;
     }
 
-
-    /* MOBILE FULLSCREEN GALLERY */
+    /* FULLSCREEN MOBILE GALLERY */
 
     .image-modal {
       display: none;
@@ -209,10 +191,6 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-
-      /*
-      We control pinch, swipe and drag ourselves.
-      */
       touch-action: none;
     }
 
@@ -239,10 +217,7 @@
       -webkit-user-select: none;
       -webkit-user-drag: none;
 
-      transform:
-        translate(0px, 0px)
-        scale(1);
-
+      transform: translate(0px, 0px) scale(1);
       transform-origin: center center;
 
       will-change: transform;
@@ -265,15 +240,11 @@
       bottom: 18px;
       left: 50%;
       transform: translateX(-50%);
-
       color: white;
       font-size: 14px;
-
       background: rgba(0, 0, 0, 0.55);
-
       padding: 7px 13px;
       border-radius: 20px;
-
       z-index: 10001;
     }
 
@@ -282,18 +253,13 @@
       top: 22px;
       left: 50%;
       transform: translateX(-50%);
-
       color: #ddd;
       font-size: 12px;
-
       background: rgba(0, 0, 0, 0.45);
-
       padding: 6px 10px;
       border-radius: 20px;
-
       pointer-events: none;
     }
-
 
     footer {
       background: #000;
@@ -301,9 +267,6 @@
       text-align: center;
       padding: 25px;
     }
-
-
-    /* MOBILE */
 
     @media (max-width: 800px) {
 
@@ -328,15 +291,12 @@
       .thumbnails img {
         height: 80px;
       }
-
     }
 
   </style>
 </head>
 
-
 <body>
-
 
 <header>
 
@@ -348,28 +308,18 @@
   </a>
 
   <nav class="menu">
-
     <a href="boxers.html">BOXERS</a>
-
     <a href="pants.html">PANTS</a>
-
     <a href="tshirts.html">T-SHIRTS</a>
-
     <a href="combos.html">COMBOS</a>
-
   </nav>
 
 </header>
 
 
-
 <main class="product-page">
 
-
-  <!-- PRODUCT GALLERY -->
-
   <div class="product-gallery">
-
 
     <div
       class="main-image"
@@ -407,12 +357,8 @@
 
     </div>
 
-
   </div>
 
-
-
-  <!-- PRODUCT INFORMATION -->
 
   <div class="product-info">
 
@@ -420,125 +366,73 @@
       PSD Looney Tunes Boxer Briefs
     </h1>
 
-
     <div class="price">
       $19.99
     </div>
 
-
     <div class="description">
-
       Authentic PSD boxer briefs featuring a Looney Tunes design.
       Brand new with tags, comfortable fit and bold streetwear style.
       Limited quantities available.
-
     </div>
 
-
     <div class="detail">
-
-      <strong>
-        Available Sizes:
-      </strong>
-
+      <strong>Available Sizes:</strong>
       M — Medium / L — Large
-
     </div>
 
-
     <div class="detail">
-
-      <strong>
-        Condition:
-      </strong>
-
+      <strong>Condition:</strong>
       Brand New With Tags
-
     </div>
-
 
     <div class="detail">
-
-      <strong>
-        Authenticity:
-      </strong>
-
+      <strong>Authenticity:</strong>
       100% Authentic
-
     </div>
-
 
     <div class="stock">
       ✓ In Stock
     </div>
 
-
     <div class="shipping">
-
-      Standard U.S. Shipping: $7
-
-      <br>
-
-      Free Local Pickup / Delivery — South Florida Only
-
-      <br>
-
-      <strong>
-        Select your size during checkout.
-      </strong>
-
+      Standard U.S. Shipping: $7<br>
+      Free Local Pickup / Delivery — South Florida Only<br>
+      <strong>Select your size during checkout.</strong>
     </div>
-
 
     <a
       href="https://buy.stripe.com/28EcMY4kw99x2YrbwFfnO01"
       class="buy-button">
-
       BUY NOW
-
     </a>
 
-
     <div class="back">
-
       <a href="boxers.html">
-
         ← BACK TO BOXERS
-
       </a>
-
     </div>
 
-
   </div>
-
 
 </main>
 
 
-
-<!-- MOBILE FULLSCREEN IMAGE -->
+<!-- FULLSCREEN MOBILE GALLERY -->
 
 <div
   class="image-modal"
   id="imageModal">
 
-
   <span
     class="close-modal"
     id="closeModal">
-
     &times;
-
   </span>
 
-
   <div class="zoom-hint">
-
-    Pinch with two fingers to zoom
-
+    Pinch to zoom • Swipe down to close
   </div>
-
 
   <div
     class="modal-image-wrap"
@@ -551,104 +445,58 @@
 
   </div>
 
-
   <div
     class="image-counter"
     id="imageCounter">
-
     1 / 4
-
   </div>
-
 
 </div>
 
 
-
 <footer>
-
   <p>
-    © 2026 First Class Supply.
-    All Rights Reserved.
+    © 2026 First Class Supply. All Rights Reserved.
   </p>
-
 </footer>
-
 
 
 <script>
 
-
-  /* =========================
-     PRODUCT IMAGES
-     ========================= */
-
   const productImages = [
-
     "psd-looney-front.jpg",
-
     "psd-looney-back.jpg",
-
     "psd-looney-tag-front.jpg",
-
     "psd-looney-tag-back.jpg"
-
   ];
-
 
   let currentImageIndex = 0;
 
-
-
   const zoomContainer =
-    document.getElementById(
-      "zoomContainer"
-    );
-
+    document.getElementById("zoomContainer");
 
   const mainImage =
-    document.getElementById(
-      "mainProductImage"
-    );
-
+    document.getElementById("mainProductImage");
 
   const modal =
-    document.getElementById(
-      "imageModal"
-    );
-
+    document.getElementById("imageModal");
 
   const modalImage =
-    document.getElementById(
-      "modalImage"
-    );
-
+    document.getElementById("modalImage");
 
   const closeModal =
-    document.getElementById(
-      "closeModal"
-    );
-
+    document.getElementById("closeModal");
 
   const imageCounter =
-    document.getElementById(
-      "imageCounter"
-    );
+    document.getElementById("imageCounter");
 
-
-
-  /* =========================
-     CHANGE PRODUCT IMAGE
-     ========================= */
 
   function changeProductImage(index) {
 
     currentImageIndex = index;
 
     mainImage.src =
-      productImages[
-        currentImageIndex
-      ];
+      productImages[currentImageIndex];
 
     mainImage.style.transformOrigin =
       "center center";
@@ -656,23 +504,14 @@
   }
 
 
-
-  /* =========================
-     COMPUTER ZOOM
-     ========================= */
+  /* COMPUTER ZOOM */
 
   zoomContainer.addEventListener(
     "mouseenter",
     function() {
 
-      if (
-        window.innerWidth > 800
-      ) {
-
-        zoomContainer
-          .classList
-          .add("zooming");
-
+      if (window.innerWidth > 800) {
+        zoomContainer.classList.add("zooming");
       }
 
     }
@@ -683,47 +522,23 @@
     "mousemove",
     function(event) {
 
-      if (
-        window.innerWidth <= 800
-      ) {
-
+      if (window.innerWidth <= 800) {
         return;
-
       }
 
-
       const rect =
-        zoomContainer
-          .getBoundingClientRect();
-
+        zoomContainer.getBoundingClientRect();
 
       const x =
-        (
-          (
-            event.clientX
-            - rect.left
-          )
-          / rect.width
-        )
-        * 100;
-
+        ((event.clientX - rect.left)
+        / rect.width) * 100;
 
       const y =
-        (
-          (
-            event.clientY
-            - rect.top
-          )
-          / rect.height
-        )
-        * 100;
-
+        ((event.clientY - rect.top)
+        / rect.height) * 100;
 
       mainImage.style.transformOrigin =
-        x
-        + "% "
-        + y
-        + "%";
+        x + "% " + y + "%";
 
     }
   );
@@ -733,10 +548,7 @@
     "mouseleave",
     function() {
 
-      zoomContainer
-        .classList
-        .remove("zooming");
-
+      zoomContainer.classList.remove("zooming");
 
       mainImage.style.transformOrigin =
         "center center";
@@ -745,48 +557,32 @@
   );
 
 
-
-  /* =========================
-     MOBILE MODAL
-     ========================= */
+  /* MOBILE MODAL */
 
   function updateModalImage() {
 
     modalImage.src =
-      productImages[
-        currentImageIndex
-      ];
-
+      productImages[currentImageIndex];
 
     imageCounter.textContent =
-      (
-        currentImageIndex + 1
-      )
+      (currentImageIndex + 1)
       + " / "
       + productImages.length;
-
 
     resetMobileZoom();
 
   }
 
 
-
   zoomContainer.addEventListener(
     "click",
     function() {
 
-      if (
-        window.innerWidth <= 800
-      ) {
+      if (window.innerWidth <= 800) {
 
         updateModalImage();
 
-
-        modal
-          .classList
-          .add("active");
-
+        modal.classList.add("active");
 
         document.body.style.overflow =
           "hidden";
@@ -797,22 +593,16 @@
   );
 
 
-
   function closeImageModal() {
 
-    modal
-      .classList
-      .remove("active");
-
+    modal.classList.remove("active");
 
     document.body.style.overflow =
       "auto";
 
-
     resetMobileZoom();
 
   }
-
 
 
   closeModal.addEventListener(
@@ -821,67 +611,44 @@
   );
 
 
-
-  /* =========================
-     MOBILE PINCH ZOOM
-     ========================= */
+  /* PINCH ZOOM */
 
   let scale = 1;
-
   let startScale = 1;
 
   let translateX = 0;
-
   let translateY = 0;
 
-
   let startTranslateX = 0;
-
   let startTranslateY = 0;
-
 
   let pinchStartDistance = 0;
 
-
   let touchStartX = 0;
-
   let touchStartY = 0;
 
-
   let singleTouchStartX = 0;
-
   let singleTouchStartY = 0;
 
-
   let isPinching = false;
-
   let isDragging = false;
 
 
-
-  function getDistance(
-    touch1,
-    touch2
-  ) {
+  function getDistance(touch1, touch2) {
 
     const x =
       touch2.clientX
       - touch1.clientX;
 
-
     const y =
       touch2.clientY
       - touch1.clientY;
 
-
     return Math.sqrt(
-      x * x
-      +
-      y * y
+      x * x + y * y
     );
 
   }
-
 
 
   function applyMobileTransform() {
@@ -892,29 +659,23 @@
       + "px, "
       + translateY
       + "px)"
-      +
-      " scale("
+      + " scale("
       + scale
       + ")";
 
   }
 
 
-
   function resetMobileZoom() {
 
     scale = 1;
-
     startScale = 1;
 
     translateX = 0;
-
     translateY = 0;
 
     startTranslateX = 0;
-
     startTranslateY = 0;
-
 
     modalImage.style.transform =
       "translate(0px, 0px) scale(1)";
@@ -922,22 +683,14 @@
   }
 
 
-
   modal.addEventListener(
     "touchstart",
     function(event) {
 
-
-      /* TWO FINGERS = PINCH */
-
-      if (
-        event.touches.length === 2
-      ) {
+      if (event.touches.length === 2) {
 
         isPinching = true;
-
         isDragging = false;
-
 
         pinchStartDistance =
           getDistance(
@@ -945,56 +698,34 @@
             event.touches[1]
           );
 
-
-        startScale =
-          scale;
+        startScale = scale;
 
       }
 
-
-      /* ONE FINGER */
-
-      else if (
-        event.touches.length === 1
-      ) {
+      else if (event.touches.length === 1) {
 
         isPinching = false;
 
-
         singleTouchStartX =
-          event.touches[0]
-            .clientX;
-
+          event.touches[0].clientX;
 
         singleTouchStartY =
-          event.touches[0]
-            .clientY;
-
+          event.touches[0].clientY;
 
         touchStartX =
-          event.touches[0]
-            .clientX;
-
+          event.touches[0].clientX;
 
         touchStartY =
-          event.touches[0]
-            .clientY;
-
+          event.touches[0].clientY;
 
         startTranslateX =
           translateX;
 
-
         startTranslateY =
           translateY;
 
-
-        if (
-          scale > 1
-        ) {
-
+        if (scale > 1) {
           isDragging = true;
-
         }
 
       }
@@ -1006,13 +737,9 @@
   );
 
 
-
   modal.addEventListener(
     "touchmove",
     function(event) {
-
-
-      /* PINCH ZOOM */
 
       if (
         event.touches.length === 2
@@ -1022,13 +749,11 @@
 
         event.preventDefault();
 
-
         const currentDistance =
           getDistance(
             event.touches[0],
             event.touches[1]
           );
-
 
         let newScale =
           startScale
@@ -1039,50 +764,24 @@
             pinchStartDistance
           );
 
-
-        /* MINIMUM ZOOM */
-
-        if (
-          newScale < 1
-        ) {
-
+        if (newScale < 1) {
           newScale = 1;
-
         }
 
-
-        /* MAXIMUM ZOOM */
-
-        if (
-          newScale > 4
-        ) {
-
+        if (newScale > 4) {
           newScale = 4;
-
         }
 
+        scale = newScale;
 
-        scale =
-          newScale;
-
-
-        if (
-          scale === 1
-        ) {
-
+        if (scale === 1) {
           translateX = 0;
-
           translateY = 0;
-
         }
-
 
         applyMobileTransform();
 
       }
-
-
-      /* DRAG WHEN ZOOMED */
 
       else if (
         event.touches.length === 1
@@ -1094,16 +793,11 @@
 
         event.preventDefault();
 
-
         const currentX =
-          event.touches[0]
-            .clientX;
-
+          event.touches[0].clientX;
 
         const currentY =
-          event.touches[0]
-            .clientY;
-
+          event.touches[0].clientY;
 
         translateX =
           startTranslateX
@@ -1114,7 +808,6 @@
             touchStartX
           );
 
-
         translateY =
           startTranslateY
           +
@@ -1123,7 +816,6 @@
             -
             touchStartY
           );
-
 
         applyMobileTransform();
 
@@ -1136,56 +828,33 @@
   );
 
 
-
   modal.addEventListener(
     "touchend",
     function(event) {
 
-
-      /*
-      If there are still fingers
-      touching, don't swipe.
-      */
-
-      if (
-        event.touches.length > 0
-      ) {
-
+      if (event.touches.length > 0) {
         return;
-
       }
-
 
 
       /* FINISH PINCH */
 
-      if (
-        isPinching
-      ) {
+      if (isPinching) {
 
         isPinching = false;
 
-
-        if (
-          scale <= 1.02
-        ) {
-
+        if (scale <= 1.02) {
           resetMobileZoom();
-
         }
-
 
         return;
 
       }
 
 
+      /* WHEN ZOOMED, DON'T SWIPE/CLOSE */
 
-      /* FINISH DRAG */
-
-      if (
-        scale > 1
-      ) {
+      if (scale > 1) {
 
         isDragging = false;
 
@@ -1194,26 +863,19 @@
       }
 
 
-
-      /* NORMAL SWIPE */
-
       const changedTouch =
         event.changedTouches[0];
-
 
       const endX =
         changedTouch.clientX;
 
-
       const endY =
         changedTouch.clientY;
-
 
       const differenceX =
         endX
         -
         singleTouchStartX;
-
 
       const differenceY =
         endY
@@ -1221,16 +883,32 @@
         singleTouchStartY;
 
 
-
       /*
-      Only treat it as a swipe
-      if horizontal movement
-      is stronger.
+        SWIPE DOWN TO CLOSE
+        Must move mostly downward.
       */
 
       if (
+        differenceY > 90
+        &&
+        Math.abs(differenceY)
+        >
         Math.abs(differenceX)
-        < 45
+      ) {
+
+        closeImageModal();
+
+        return;
+
+      }
+
+
+      /*
+        HORIZONTAL SWIPE
+      */
+
+      if (
+        Math.abs(differenceX) < 45
         ||
         Math.abs(differenceX)
         <
@@ -1242,17 +920,13 @@
       }
 
 
+      /* NEXT IMAGE */
 
-      /* SWIPE LEFT */
-
-      if (
-        differenceX < 0
-      ) {
+      if (differenceX < 0) {
 
         currentImageIndex =
           (
-            currentImageIndex
-            + 1
+            currentImageIndex + 1
           )
           %
           productImages.length;
@@ -1260,7 +934,7 @@
       }
 
 
-      /* SWIPE RIGHT */
+      /* PREVIOUS IMAGE */
 
       else {
 
@@ -1268,8 +942,7 @@
           (
             currentImageIndex
             - 1
-            +
-            productImages.length
+            + productImages.length
           )
           %
           productImages.length;
@@ -1278,10 +951,7 @@
 
 
       mainImage.src =
-        productImages[
-          currentImageIndex
-        ];
-
+        productImages[currentImageIndex];
 
       updateModalImage();
 
@@ -1291,9 +961,7 @@
     }
   );
 
-
 </script>
-
 
 </body>
 </html>
