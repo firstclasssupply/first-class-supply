@@ -73,15 +73,21 @@
       padding: 30px 20px 70px;
     }
 
-    /* 3 PRODUCTOS POR FILA */
+    /*
+      6 columnas internas:
+      cada producto ocupa 2.
+      Primera fila = 3 productos.
+      Segunda fila = 2 productos centrados.
+    */
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       gap: 30px;
       align-items: stretch;
     }
 
     .product {
+      grid-column: span 2;
       background: #fff;
       border: 1px solid #ddd;
       border-radius: 12px;
@@ -91,6 +97,15 @@
 
       display: flex;
       flex-direction: column;
+    }
+
+    /* Centrar los dos productos de la segunda fila */
+    .product:nth-child(4) {
+      grid-column: 2 / span 2;
+    }
+
+    .product:nth-child(5) {
+      grid-column: 4 / span 2;
     }
 
     .product:hover {
@@ -165,12 +180,24 @@
       .product-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+
+      .product,
+      .product:nth-child(4),
+      .product:nth-child(5) {
+        grid-column: auto;
+      }
     }
 
     /* CELULAR */
     @media (max-width: 600px) {
       .product-grid {
         grid-template-columns: 1fr;
+      }
+
+      .product,
+      .product:nth-child(4),
+      .product:nth-child(5) {
+        grid-column: auto;
       }
 
       .hero h1 {
@@ -319,6 +346,33 @@
         </p>
 
         <a href="boxer4.html" class="button">
+          VIEW PRODUCT
+        </a>
+
+      </div>
+
+
+      <!-- BOXER 5 -->
+
+      <div class="product">
+
+        <div class="product-image">
+          <img
+            src="psd-multicolor-shark-front.jpg"
+            alt="PSD Multicolor Shark Boxer Briefs">
+        </div>
+
+        <h2>PSD Multicolor Shark Boxer Briefs</h2>
+
+        <p class="price">$19.99</p>
+
+        <p class="shipping">
+          Size M – Only 1 Available<br>
+          + $7 Standard Shipping<br>
+          Free Local Pickup / Delivery – South Florida
+        </p>
+
+        <a href="boxer5.html" class="button">
           VIEW PRODUCT
         </a>
 
