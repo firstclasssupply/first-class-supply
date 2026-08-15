@@ -22,47 +22,38 @@
     header {
       background: #000000;
       color: white;
-      padding: 25px;
+      padding: 20px;
       text-align: center;
     }
-.logo {
-  width: 220px;
-  max-width: 80%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-    .menu {
-  margin-top: 22px;
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  flex-wrap: wrap;
-}
 
-.menu a {
-  color: #d4af37;
-  text-decoration: none;
-  border: 1px solid #d4af37;
-  padding: 10px 18px;
-  border-radius: 6px;
-  font-size: 14px;
-  letter-spacing: 1px;
-  transition: 0.3s;
-}
-
-.menu a:hover {
-  background: #d4af37;
-  color: #000000;
-}
-    header h1 {
-      font-size: 32px;
-      letter-spacing: 3px;
+    .logo {
+      width: 260px;
+      max-width: 80%;
+      height: auto;
+      display: block;
+      margin: 0 auto 20px;
     }
 
-    header p {
-      margin-top: 8px;
-      color: #cccccc;
+    .menu {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .menu a {
+      color: #d4af37;
+      text-decoration: none;
+      border: 2px solid #d4af37;
+      padding: 12px 25px;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .menu a:hover {
+      background: #d4af37;
+      color: #000000;
     }
 
     .hero {
@@ -76,8 +67,8 @@
       padding: 40px 20px;
     }
 
-    .hero h2 {
-      font-size: 48px;
+    .hero h1 {
+      font-size: 50px;
       margin-bottom: 15px;
     }
 
@@ -85,44 +76,76 @@
       font-size: 20px;
       color: #555555;
       margin-bottom: 30px;
+      line-height: 1.5;
     }
 
     .button {
       display: inline-block;
       background: #000000;
-      color: white;
-      padding: 15px 30px;
+      color: #d4af37;
+      padding: 15px 35px;
       text-decoration: none;
       border-radius: 6px;
       font-weight: bold;
+      border: 2px solid #000000;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background: #d4af37;
+      color: #000000;
+      border-color: #d4af37;
     }
 
     .products {
-      padding: 60px 20px;
+      padding: 70px 20px;
       text-align: center;
+      background: #ffffff;
     }
 
     .products h2 {
-      font-size: 34px;
-      margin-bottom: 35px;
+      font-size: 36px;
+      margin-bottom: 40px;
     }
 
     .product-grid {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 25px;
+    }
+
+    .product-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
 
     .product {
       border: 1px solid #dddddd;
-      border-radius: 10px;
-      padding: 35px 20px;
+      border-radius: 12px;
+      padding: 45px 25px;
+      min-height: 180px;
+      background: #ffffff;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.10);
+      border-color: #d4af37;
     }
 
     .product h3 {
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      font-size: 24px;
+    }
+
+    .product p {
+      color: #666666;
+      line-height: 1.6;
     }
 
     footer {
@@ -130,7 +153,55 @@
       color: white;
       text-align: center;
       padding: 25px;
-      margin-top: 40px;
+    }
+
+    @media (max-width: 900px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 18px 12px;
+      }
+
+      .logo {
+        width: 220px;
+      }
+
+      .menu {
+        gap: 10px;
+      }
+
+      .menu a {
+        padding: 10px 15px;
+        font-size: 14px;
+      }
+
+      .hero {
+        min-height: 420px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .products {
+        padding: 50px 20px;
+      }
+
+      .products h2 {
+        font-size: 30px;
+      }
     }
   </style>
 </head>
@@ -138,21 +209,38 @@
 <body>
 
   <header>
-  <img src="first.PNG" alt="First Class Supply" class="logo">
-  <nav class="menu">
-  <a href="boxers.html">BOXERS</a>
-  <a href="pants.html">PANTS</a>
-  <a href="tshirts.html">T-SHIRTS</a>
- <a href="combos.html">COMBOS</a>
-</nav>
-</header>
 
-<section class="hero">
-  <h2>Upgrade Your Style.</h2>
-  <p>Shop authentic boxers, pants, T-shirts and more.</p>
-  <a href="#products" class="button">SHOP NOW</a>
-</section>
+    <a href="index.html">
+      <img
+        src="first.PNG"
+        alt="First Class Supply"
+        class="logo">
+    </a>
+
+    <nav class="menu">
+      <a href="boxers.html">BOXERS</a>
+      <a href="pants.html">PANTS</a>
+      <a href="tshirts.html">T-SHIRTS</a>
+      <a href="combos.html">COMBOS</a>
+    </nav>
+
+  </header>
+
+
+  <section class="hero">
+
+    <h1>Upgrade Your Style.</h1>
+
+    <p>
+      Shop authentic boxers, pants, T-shirts and more.
+    </p>
+
+    <a href="#products" class="button">
+      SHOP NOW
+    </a>
+
   </section>
+
 
   <section class="products" id="products">
 
@@ -160,29 +248,51 @@
 
     <div class="product-grid">
 
-      <div class="product">
-  <h3>Boxers</h3>
-  <p>Shop authentic designer boxer briefs at great prices.</p>
-</div>
 
-      <div class="product">
-  <h3>Pants</h3>
-  <p>Shop premium pants and streetwear styles.</p>
-</div>
+      <a href="boxers.html" class="product-link">
+        <div class="product">
+          <h3>Boxers</h3>
+          <p>
+            Shop authentic designer boxer briefs at great prices.
+          </p>
+        </div>
+      </a>
 
-      <div class="product">
-  <h3>T-Shirts</h3>
-  <p>Shop authentic graphic tees and everyday streetwear.</p>
-</div>
 
-<div class="product">
-  <h3>Combos</h3>
-  <p>Save more with selected product bundles and special deals.</p>
-</div>
+      <a href="pants.html" class="product-link">
+        <div class="product">
+          <h3>Pants</h3>
+          <p>
+            Shop premium pants and streetwear styles.
+          </p>
+        </div>
+      </a>
+
+
+      <a href="tshirts.html" class="product-link">
+        <div class="product">
+          <h3>T-Shirts</h3>
+          <p>
+            Shop authentic graphic tees and everyday streetwear.
+          </p>
+        </div>
+      </a>
+
+
+      <a href="combos.html" class="product-link">
+        <div class="product">
+          <h3>Combos</h3>
+          <p>
+            Save more with selected product bundles and special deals.
+          </p>
+        </div>
+      </a>
+
 
     </div>
 
   </section>
+
 
   <footer>
     <p>© 2026 First Class Supply. All Rights Reserved.</p>
