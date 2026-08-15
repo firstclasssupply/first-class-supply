@@ -62,46 +62,62 @@
     }
 
     .product-gallery {
-  width: 100%;
-}
+      width: 100%;
+    }
 
-.main-image {
-  width: 100%;
-  height: 520px;
-  background: #eeeeee;
-  border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
+    /* FOTO PRINCIPAL */
+    .main-image {
+      width: 100%;
+      height: 520px;
+      background: #eeeeee;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+      cursor: zoom-in;
+    }
 
-.main-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
+    .main-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.2s ease;
+      transform-origin: center center;
+    }
 
-.thumbnails {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  margin-top: 12px;
-}
+    /* ZOOM EN COMPUTADORA */
+    @media (min-width: 801px) {
 
-.thumbnails img {
-  width: 100%;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 8px;
-  cursor: pointer;
-  border: 2px solid transparent;
-}
+      .main-image.zooming img {
+        transform: scale(2.4);
+      }
 
-.thumbnails img:hover {
-  border: 2px solid #d4af37;
-}
+    }
 
+    /* MINIATURAS */
+    .thumbnails {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .thumbnails img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+
+    .thumbnails img:hover {
+      border: 2px solid #d4af37;
+    }
+
+    /* INFORMACIÓN DEL PRODUCTO */
     .product-info h1 {
       font-size: 42px;
       margin-bottom: 15px;
@@ -163,6 +179,42 @@
       font-weight: bold;
     }
 
+    /* FOTO GRANDE EN CELULAR */
+    .image-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .image-modal.active {
+      display: flex;
+    }
+
+    .image-modal img {
+      max-width: 95%;
+      max-height: 90%;
+      object-fit: contain;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      color: white;
+      font-size: 42px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 10000;
+    }
+
     footer {
       background: #000;
       color: white;
@@ -170,14 +222,17 @@
       padding: 25px;
     }
 
+    /* CELULAR */
     @media (max-width: 800px) {
+
       .product-page {
         grid-template-columns: 1fr;
         padding: 40px 20px;
       }
 
-      .product-image {
-        min-height: 380px;
+      .main-image {
+        height: 380px;
+        cursor: zoom-in;
       }
 
       .product-info h1 {
@@ -188,11 +243,17 @@
         width: 100%;
         text-align: center;
       }
+
+      .thumbnails img {
+        height: 80px;
+      }
     }
+
   </style>
 </head>
 
 <body>
+
 
 <header>
 
@@ -212,20 +273,46 @@
 
 <main class="product-page">
 
+
   <div class="product-gallery">
 
-  <div class="main-image">
-    <img id="mainProductImage" src="psd-looney-front.jpg" alt="PSD Looney Tunes Boxer Briefs">
-  </div>
 
-  <div class="thumbnails">
-    <img src="psd-looney-front.jpg" onclick="document.getElementById('mainProductImage').src=this.src">
-    <img src="psd-looney-back.jpg" onclick="document.getElementById('mainProductImage').src=this.src">
-    <img src="psd-looney-tag-front.jpg" onclick="document.getElementById('mainProductImage').src=this.src">
-    <img src="psd-looney-tag-back.jpg" onclick="document.getElementById('mainProductImage').src=this.src">
-  </div>
+    <div class="main-image" id="zoomContainer">
 
-</div>
+      <img
+        id="mainProductImage"
+        src="psd-looney-front.jpg"
+        alt="PSD Looney Tunes Boxer Briefs">
+
+    </div>
+
+
+    <div class="thumbnails">
+
+      <img
+        src="psd-looney-front.jpg"
+        alt="PSD Looney Tunes Boxer Briefs Front"
+        onclick="changeProductImage(this.src)">
+
+      <img
+        src="psd-looney-back.jpg"
+        alt="PSD Looney Tunes Boxer Briefs Back"
+        onclick="changeProductImage(this.src)">
+
+      <img
+        src="psd-looney-tag-front.jpg"
+        alt="PSD Looney Tunes Tag Front"
+        onclick="changeProductImage(this.src)">
+
+      <img
+        src="psd-looney-tag-back.jpg"
+        alt="PSD Looney Tunes Tag Back"
+        onclick="changeProductImage(this.src)">
+
+    </div>
+
+
+  </div>
 
 
   <div class="product-info">
@@ -243,15 +330,18 @@
     </div>
 
     <div class="detail">
-      <strong>Available Sizes:</strong> M — Medium / L — Large
+      <strong>Available Sizes:</strong>
+      M — Medium / L — Large
     </div>
 
     <div class="detail">
-      <strong>Condition:</strong> Brand New With Tags
+      <strong>Condition:</strong>
+      Brand New With Tags
     </div>
 
     <div class="detail">
-      <strong>Authenticity:</strong> 100% Authentic
+      <strong>Authenticity:</strong>
+      100% Authentic
     </div>
 
     <div class="stock">
@@ -264,22 +354,190 @@
       <strong>Select your size during checkout.</strong>
     </div>
 
-    <a href="https://buy.stripe.com/28EcMY4kw99x2YrbwFfnO01" class="buy-button">
+    <a
+      href="https://buy.stripe.com/28EcMY4kw99x2YrbwFfnO01"
+      class="buy-button">
       BUY NOW
     </a>
 
     <div class="back">
-      <a href="boxers.html">← BACK TO BOXERS</a>
+      <a href="boxers.html">
+        ← BACK TO BOXERS
+      </a>
     </div>
 
   </div>
 
+
 </main>
 
 
+<!-- IMAGEN GRANDE PARA CELULAR -->
+
+<div class="image-modal" id="imageModal">
+
+  <span class="close-modal" id="closeModal">
+    &times;
+  </span>
+
+  <img
+    id="modalImage"
+    src=""
+    alt="Product Image">
+
+</div>
+
+
 <footer>
-  <p>© 2026 First Class Supply. All Rights Reserved.</p>
+
+  <p>
+    © 2026 First Class Supply. All Rights Reserved.
+  </p>
+
 </footer>
+
+
+<script>
+
+  const zoomContainer =
+    document.getElementById("zoomContainer");
+
+  const mainImage =
+    document.getElementById("mainProductImage");
+
+  const modal =
+    document.getElementById("imageModal");
+
+  const modalImage =
+    document.getElementById("modalImage");
+
+  const closeModal =
+    document.getElementById("closeModal");
+
+
+  /* CAMBIAR FOTO CON LAS MINIATURAS */
+
+  function changeProductImage(src) {
+
+    mainImage.src = src;
+
+    mainImage.style.transformOrigin =
+      "center center";
+
+  }
+
+
+  /* ZOOM CON EL CURSOR EN COMPUTADORA */
+
+  zoomContainer.addEventListener(
+    "mouseenter",
+    function() {
+
+      if (window.innerWidth > 800) {
+
+        zoomContainer.classList.add("zooming");
+
+      }
+
+    }
+  );
+
+
+  zoomContainer.addEventListener(
+    "mousemove",
+    function(event) {
+
+      if (window.innerWidth <= 800) return;
+
+
+      const rectangle =
+        zoomContainer.getBoundingClientRect();
+
+
+      const x =
+        ((event.clientX - rectangle.left)
+        / rectangle.width) * 100;
+
+
+      const y =
+        ((event.clientY - rectangle.top)
+        / rectangle.height) * 100;
+
+
+      mainImage.style.transformOrigin =
+        x + "% " + y + "%";
+
+    }
+  );
+
+
+  zoomContainer.addEventListener(
+    "mouseleave",
+    function() {
+
+      zoomContainer.classList.remove("zooming");
+
+      mainImage.style.transformOrigin =
+        "center center";
+
+    }
+  );
+
+
+  /* ABRIR FOTO GRANDE EN CELULAR */
+
+  zoomContainer.addEventListener(
+    "click",
+    function() {
+
+      if (window.innerWidth <= 800) {
+
+        modalImage.src = mainImage.src;
+
+        modal.classList.add("active");
+
+        document.body.style.overflow =
+          "hidden";
+
+      }
+
+    }
+  );
+
+
+  /* CERRAR FOTO */
+
+  closeModal.addEventListener(
+    "click",
+    function() {
+
+      modal.classList.remove("active");
+
+      document.body.style.overflow =
+        "auto";
+
+    }
+  );
+
+
+  modal.addEventListener(
+    "click",
+    function(event) {
+
+      if (event.target === modal) {
+
+        modal.classList.remove("active");
+
+        document.body.style.overflow =
+          "auto";
+
+      }
+
+    }
+  );
+
+</script>
+
 
 </body>
 </html>
