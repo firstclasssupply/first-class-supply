@@ -65,7 +65,6 @@
       width: 100%;
     }
 
-    /* FOTO PRINCIPAL */
     .main-image {
       width: 100%;
       height: 520px;
@@ -87,14 +86,12 @@
       transform-origin: center center;
     }
 
-    /* ZOOM EN COMPUTADORA */
     @media (min-width: 801px) {
       .main-image.zooming img {
         transform: scale(2.4);
       }
     }
 
-    /* MINIATURAS */
     .thumbnails {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -176,7 +173,6 @@
       font-weight: bold;
     }
 
-    /* IMAGEN GRANDE EN CELULAR */
     .image-modal {
       display: none;
       position: fixed;
@@ -185,10 +181,11 @@
       top: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.95);
+      background: rgba(0, 0, 0, 0.96);
       align-items: center;
       justify-content: center;
       padding: 20px;
+      touch-action: pan-y;
     }
 
     .image-modal.active {
@@ -197,19 +194,31 @@
 
     .image-modal img {
       max-width: 95%;
-      max-height: 90%;
+      max-height: 88%;
       object-fit: contain;
+      user-select: none;
+      -webkit-user-drag: none;
     }
 
     .close-modal {
       position: absolute;
-      top: 20px;
-      right: 25px;
+      top: 18px;
+      right: 24px;
       color: white;
       font-size: 42px;
       font-weight: bold;
       cursor: pointer;
       z-index: 10000;
+    }
+
+    .image-counter {
+      position: absolute;
+      bottom: 22px;
+      color: white;
+      font-size: 14px;
+      background: rgba(0,0,0,0.45);
+      padding: 7px 12px;
+      border-radius: 20px;
     }
 
     footer {
@@ -227,7 +236,6 @@
 
       .main-image {
         height: 380px;
-        cursor: zoom-in;
       }
 
       .product-info h1 {
@@ -249,7 +257,6 @@
 <body>
 
 <header>
-
   <a href="index.html">
     <img src="first.PNG" class="logo" alt="First Class Supply">
   </a>
@@ -260,9 +267,7 @@
     <a href="tshirts.html">T-SHIRTS</a>
     <a href="combos.html">COMBOS</a>
   </nav>
-
 </header>
-
 
 <main class="product-page">
 
@@ -276,39 +281,19 @@
     </div>
 
     <div class="thumbnails">
-
-      <img
-        src="psd-pink-money-front.jpg"
-        alt="PSD Pink Money Shark Boxer Briefs Front"
-        onclick="changeProductImage(this.src)">
-
-      <img
-        src="psd-pink-money-back.jpg"
-        alt="PSD Pink Money Shark Boxer Briefs Back"
-        onclick="changeProductImage(this.src)">
-
-      <img
-        src="psd-pink-money-tag-front.jpg"
-        alt="PSD Pink Money Shark Tag Front"
-        onclick="changeProductImage(this.src)">
-
-      <img
-        src="psd-pink-money-tag-back.jpg"
-        alt="PSD Pink Money Shark Tag Back"
-        onclick="changeProductImage(this.src)">
-
+      <img src="psd-pink-money-front.jpg" onclick="changeProductImage(0)">
+      <img src="psd-pink-money-back.jpg" onclick="changeProductImage(1)">
+      <img src="psd-pink-money-tag-front.jpg" onclick="changeProductImage(2)">
+      <img src="psd-pink-money-tag-back.jpg" onclick="changeProductImage(3)">
     </div>
 
   </div>
-
 
   <div class="product-info">
 
     <h1>PSD Pink Money Shark Boxer Briefs</h1>
 
-    <div class="price">
-      $19.99
-    </div>
+    <div class="price">$19.99</div>
 
     <div class="description">
       Authentic PSD boxer briefs featuring a bold pink money-inspired
@@ -352,28 +337,35 @@
 
 </main>
 
-
-<!-- IMAGEN GRANDE PARA CELULAR -->
 <div class="image-modal" id="imageModal">
 
-  <span class="close-modal" id="closeModal">
-    &times;
-  </span>
+  <span class="close-modal" id="closeModal">&times;</span>
 
   <img
     id="modalImage"
     src=""
     alt="PSD Pink Money Shark Boxer Briefs">
 
-</div>
+  <div class="image-counter" id="imageCounter">
+    1 / 4
+  </div>
 
+</div>
 
 <footer>
   <p>© 2026 First Class Supply. All Rights Reserved.</p>
 </footer>
 
-
 <script>
+
+  const productImages = [
+    "psd-pink-money-front.jpg",
+    "psd-pink-money-back.jpg",
+    "psd-pink-money-tag-front.jpg",
+    "psd-pink-money-tag-back.jpg"
+  ];
+
+  let currentImageIndex = 0;
 
   const zoomContainer =
     document.getElementById("zoomContainer");
@@ -390,12 +382,16 @@
   const closeModal =
     document.getElementById("closeModal");
 
+  const imageCounter =
+    document.getElementById("imageCounter");
 
-  /* CAMBIAR IMAGEN */
 
-  function changeProductImage(src) {
+  function changeProductImage(index) {
 
-    mainImage.src = src;
+    currentImageIndex = index;
+
+    mainImage.src =
+      productImages[currentImageIndex];
 
     mainImage.style.transformOrigin =
       "center center";
@@ -403,16 +399,25 @@
   }
 
 
-  /* ZOOM SIGUIENDO EL CURSOR */
+  function updateModalImage() {
+
+    modalImage.src =
+      productImages[currentImageIndex];
+
+    imageCounter.textContent =
+      (currentImageIndex + 1)
+      + " / "
+      + productImages.length;
+
+  }
+
 
   zoomContainer.addEventListener(
     "mouseenter",
     function() {
 
       if (window.innerWidth > 800) {
-
         zoomContainer.classList.add("zooming");
-
       }
 
     }
@@ -425,16 +430,16 @@
 
       if (window.innerWidth <= 800) return;
 
-      const rectangle =
+      const rect =
         zoomContainer.getBoundingClientRect();
 
       const x =
-        ((event.clientX - rectangle.left)
-        / rectangle.width) * 100;
+        ((event.clientX - rect.left)
+        / rect.width) * 100;
 
       const y =
-        ((event.clientY - rectangle.top)
-        / rectangle.height) * 100;
+        ((event.clientY - rect.top)
+        / rect.height) * 100;
 
       mainImage.style.transformOrigin =
         x + "% " + y + "%";
@@ -456,15 +461,13 @@
   );
 
 
-  /* ABRIR IMAGEN EN CELULAR */
-
   zoomContainer.addEventListener(
     "click",
     function() {
 
       if (window.innerWidth <= 800) {
 
-        modalImage.src = mainImage.src;
+        updateModalImage();
 
         modal.classList.add("active");
 
@@ -476,8 +479,6 @@
     }
   );
 
-
-  /* CERRAR IMAGEN */
 
   closeModal.addEventListener(
     "click",
@@ -507,6 +508,76 @@
 
     }
   );
+
+
+  let touchStartX = 0;
+
+  let touchEndX = 0;
+
+
+  modal.addEventListener(
+    "touchstart",
+    function(event) {
+
+      touchStartX =
+        event.changedTouches[0].screenX;
+
+    },
+    { passive: true }
+  );
+
+
+  modal.addEventListener(
+    "touchend",
+    function(event) {
+
+      touchEndX =
+        event.changedTouches[0].screenX;
+
+      handleSwipe();
+
+    },
+    { passive: true }
+  );
+
+
+  function handleSwipe() {
+
+    const swipeDistance =
+      touchEndX - touchStartX;
+
+    if (Math.abs(swipeDistance) < 50) {
+      return;
+    }
+
+    if (swipeDistance < 0) {
+
+      currentImageIndex++;
+
+      if (
+        currentImageIndex
+        >= productImages.length
+      ) {
+        currentImageIndex = 0;
+      }
+
+    } else {
+
+      currentImageIndex--;
+
+      if (currentImageIndex < 0) {
+        currentImageIndex =
+          productImages.length - 1;
+      }
+
+    }
+
+    mainImage.src =
+      productImages[currentImageIndex];
+
+    updateModalImage();
+
+  }
 
 </script>
 
