@@ -2,10 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+
   <title>PSD Looney Tunes Boxer Briefs | First Class Supply</title>
 
   <style>
+
     * {
       margin: 0;
       padding: 0;
@@ -51,6 +56,9 @@
       color: #000;
     }
 
+
+    /* PRODUCT PAGE */
+
     .product-page {
       max-width: 1200px;
       margin: auto;
@@ -64,6 +72,9 @@
     .product-gallery {
       width: 100%;
     }
+
+
+    /* MAIN IMAGE */
 
     .main-image {
       width: 100%;
@@ -86,11 +97,19 @@
       transform-origin: center center;
     }
 
+
+    /* COMPUTER ZOOM */
+
     @media (min-width: 801px) {
+
       .main-image.zooming img {
         transform: scale(2.4);
       }
+
     }
+
+
+    /* THUMBNAILS */
 
     .thumbnails {
       display: grid;
@@ -111,6 +130,9 @@
     .thumbnails img:hover {
       border: 2px solid #d4af37;
     }
+
+
+    /* PRODUCT INFORMATION */
 
     .product-info h1 {
       font-size: 42px;
@@ -173,53 +195,105 @@
       font-weight: bold;
     }
 
+
+    /* MOBILE FULLSCREEN GALLERY */
+
     .image-modal {
       display: none;
       position: fixed;
       z-index: 9999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.96);
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.97);
       align-items: center;
       justify-content: center;
-      padding: 20px;
-      touch-action: pan-y;
+      overflow: hidden;
+
+      /*
+      We control pinch, swipe and drag ourselves.
+      */
+      touch-action: none;
     }
 
     .image-modal.active {
       display: flex;
     }
 
+    .modal-image-wrap {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      padding: 55px 8px 55px;
+    }
+
     .image-modal img {
-      max-width: 95%;
-      max-height: 88%;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
+
       user-select: none;
+      -webkit-user-select: none;
       -webkit-user-drag: none;
+
+      transform:
+        translate(0px, 0px)
+        scale(1);
+
+      transform-origin: center center;
+
+      will-change: transform;
     }
 
     .close-modal {
-      position: absolute;
-      top: 18px;
-      right: 24px;
+      position: fixed;
+      top: 15px;
+      right: 20px;
       color: white;
-      font-size: 42px;
+      font-size: 44px;
       font-weight: bold;
       cursor: pointer;
-      z-index: 10000;
+      z-index: 10001;
+      line-height: 1;
     }
 
     .image-counter {
-      position: absolute;
-      bottom: 22px;
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+
       color: white;
       font-size: 14px;
-      background: rgba(0,0,0,0.45);
-      padding: 7px 12px;
+
+      background: rgba(0, 0, 0, 0.55);
+
+      padding: 7px 13px;
       border-radius: 20px;
+
+      z-index: 10001;
     }
+
+    .zoom-hint {
+      position: fixed;
+      top: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      color: #ddd;
+      font-size: 12px;
+
+      background: rgba(0, 0, 0, 0.45);
+
+      padding: 6px 10px;
+      border-radius: 20px;
+
+      pointer-events: none;
+    }
+
 
     footer {
       background: #000;
@@ -228,7 +302,11 @@
       padding: 25px;
     }
 
+
+    /* MOBILE */
+
     @media (max-width: 800px) {
+
       .product-page {
         grid-template-columns: 1fr;
         padding: 40px 20px;
@@ -250,148 +328,327 @@
       .thumbnails img {
         height: 80px;
       }
+
     }
+
   </style>
 </head>
 
+
 <body>
 
+
 <header>
+
   <a href="index.html">
-    <img src="first.PNG" class="logo" alt="First Class Supply">
+    <img
+      src="first.PNG"
+      class="logo"
+      alt="First Class Supply">
   </a>
 
   <nav class="menu">
+
     <a href="boxers.html">BOXERS</a>
+
     <a href="pants.html">PANTS</a>
+
     <a href="tshirts.html">T-SHIRTS</a>
+
     <a href="combos.html">COMBOS</a>
+
   </nav>
+
 </header>
+
+
 
 <main class="product-page">
 
+
+  <!-- PRODUCT GALLERY -->
+
   <div class="product-gallery">
 
-    <div class="main-image" id="zoomContainer">
+
+    <div
+      class="main-image"
+      id="zoomContainer">
+
       <img
         id="mainProductImage"
         src="psd-looney-front.jpg"
         alt="PSD Looney Tunes Boxer Briefs">
+
     </div>
 
+
     <div class="thumbnails">
-      <img src="psd-looney-front.jpg" onclick="changeProductImage(0)">
-      <img src="psd-looney-back.jpg" onclick="changeProductImage(1)">
-      <img src="psd-looney-tag-front.jpg" onclick="changeProductImage(2)">
-      <img src="psd-looney-tag-back.jpg" onclick="changeProductImage(3)">
+
+      <img
+        src="psd-looney-front.jpg"
+        alt="PSD Looney Tunes Front"
+        onclick="changeProductImage(0)">
+
+      <img
+        src="psd-looney-back.jpg"
+        alt="PSD Looney Tunes Back"
+        onclick="changeProductImage(1)">
+
+      <img
+        src="psd-looney-tag-front.jpg"
+        alt="PSD Looney Tunes Tag Front"
+        onclick="changeProductImage(2)">
+
+      <img
+        src="psd-looney-tag-back.jpg"
+        alt="PSD Looney Tunes Tag Back"
+        onclick="changeProductImage(3)">
+
     </div>
+
 
   </div>
 
+
+
+  <!-- PRODUCT INFORMATION -->
+
   <div class="product-info">
 
-    <h1>PSD Looney Tunes Boxer Briefs</h1>
+    <h1>
+      PSD Looney Tunes Boxer Briefs
+    </h1>
 
-    <div class="price">$19.99</div>
+
+    <div class="price">
+      $19.99
+    </div>
+
 
     <div class="description">
+
       Authentic PSD boxer briefs featuring a Looney Tunes design.
       Brand new with tags, comfortable fit and bold streetwear style.
       Limited quantities available.
+
     </div>
 
-    <div class="detail">
-      <strong>Available Sizes:</strong> M — Medium / L — Large
-    </div>
 
     <div class="detail">
-      <strong>Condition:</strong> Brand New With Tags
+
+      <strong>
+        Available Sizes:
+      </strong>
+
+      M — Medium / L — Large
+
     </div>
 
+
     <div class="detail">
-      <strong>Authenticity:</strong> 100% Authentic
+
+      <strong>
+        Condition:
+      </strong>
+
+      Brand New With Tags
+
     </div>
+
+
+    <div class="detail">
+
+      <strong>
+        Authenticity:
+      </strong>
+
+      100% Authentic
+
+    </div>
+
 
     <div class="stock">
       ✓ In Stock
     </div>
 
+
     <div class="shipping">
-      Standard U.S. Shipping: $7<br>
-      Free Local Pickup / Delivery — South Florida Only<br>
-      <strong>Select your size during checkout.</strong>
+
+      Standard U.S. Shipping: $7
+
+      <br>
+
+      Free Local Pickup / Delivery — South Florida Only
+
+      <br>
+
+      <strong>
+        Select your size during checkout.
+      </strong>
+
     </div>
+
 
     <a
       href="https://buy.stripe.com/28EcMY4kw99x2YrbwFfnO01"
       class="buy-button">
+
       BUY NOW
+
     </a>
 
+
     <div class="back">
-      <a href="boxers.html">← BACK TO BOXERS</a>
+
+      <a href="boxers.html">
+
+        ← BACK TO BOXERS
+
+      </a>
+
     </div>
 
+
   </div>
+
 
 </main>
 
-<div class="image-modal" id="imageModal">
 
-  <span class="close-modal" id="closeModal">&times;</span>
 
-  <img
-    id="modalImage"
-    src=""
-    alt="Product Image">
+<!-- MOBILE FULLSCREEN IMAGE -->
 
-  <div class="image-counter" id="imageCounter">
-    1 / 4
+<div
+  class="image-modal"
+  id="imageModal">
+
+
+  <span
+    class="close-modal"
+    id="closeModal">
+
+    &times;
+
+  </span>
+
+
+  <div class="zoom-hint">
+
+    Pinch with two fingers to zoom
+
   </div>
+
+
+  <div
+    class="modal-image-wrap"
+    id="modalImageWrap">
+
+    <img
+      id="modalImage"
+      src=""
+      alt="PSD Looney Tunes Boxer Briefs">
+
+  </div>
+
+
+  <div
+    class="image-counter"
+    id="imageCounter">
+
+    1 / 4
+
+  </div>
+
 
 </div>
 
+
+
 <footer>
-  <p>© 2026 First Class Supply. All Rights Reserved.</p>
+
+  <p>
+    © 2026 First Class Supply.
+    All Rights Reserved.
+  </p>
+
 </footer>
+
+
 
 <script>
 
+
+  /* =========================
+     PRODUCT IMAGES
+     ========================= */
+
   const productImages = [
+
     "psd-looney-front.jpg",
+
     "psd-looney-back.jpg",
+
     "psd-looney-tag-front.jpg",
+
     "psd-looney-tag-back.jpg"
+
   ];
+
 
   let currentImageIndex = 0;
 
+
+
   const zoomContainer =
-    document.getElementById("zoomContainer");
+    document.getElementById(
+      "zoomContainer"
+    );
+
 
   const mainImage =
-    document.getElementById("mainProductImage");
+    document.getElementById(
+      "mainProductImage"
+    );
+
 
   const modal =
-    document.getElementById("imageModal");
+    document.getElementById(
+      "imageModal"
+    );
+
 
   const modalImage =
-    document.getElementById("modalImage");
+    document.getElementById(
+      "modalImage"
+    );
+
 
   const closeModal =
-    document.getElementById("closeModal");
+    document.getElementById(
+      "closeModal"
+    );
+
 
   const imageCounter =
-    document.getElementById("imageCounter");
+    document.getElementById(
+      "imageCounter"
+    );
 
+
+
+  /* =========================
+     CHANGE PRODUCT IMAGE
+     ========================= */
 
   function changeProductImage(index) {
 
     currentImageIndex = index;
 
     mainImage.src =
-      productImages[currentImageIndex];
+      productImages[
+        currentImageIndex
+      ];
 
     mainImage.style.transformOrigin =
       "center center";
@@ -399,25 +656,23 @@
   }
 
 
-  function updateModalImage() {
 
-    modalImage.src =
-      productImages[currentImageIndex];
-
-    imageCounter.textContent =
-      (currentImageIndex + 1)
-      + " / "
-      + productImages.length;
-
-  }
-
+  /* =========================
+     COMPUTER ZOOM
+     ========================= */
 
   zoomContainer.addEventListener(
     "mouseenter",
     function() {
 
-      if (window.innerWidth > 800) {
-        zoomContainer.classList.add("zooming");
+      if (
+        window.innerWidth > 800
+      ) {
+
+        zoomContainer
+          .classList
+          .add("zooming");
+
       }
 
     }
@@ -428,21 +683,47 @@
     "mousemove",
     function(event) {
 
-      if (window.innerWidth <= 800) return;
+      if (
+        window.innerWidth <= 800
+      ) {
+
+        return;
+
+      }
+
 
       const rect =
-        zoomContainer.getBoundingClientRect();
+        zoomContainer
+          .getBoundingClientRect();
+
 
       const x =
-        ((event.clientX - rect.left)
-        / rect.width) * 100;
+        (
+          (
+            event.clientX
+            - rect.left
+          )
+          / rect.width
+        )
+        * 100;
+
 
       const y =
-        ((event.clientY - rect.top)
-        / rect.height) * 100;
+        (
+          (
+            event.clientY
+            - rect.top
+          )
+          / rect.height
+        )
+        * 100;
+
 
       mainImage.style.transformOrigin =
-        x + "% " + y + "%";
+        x
+        + "% "
+        + y
+        + "%";
 
     }
   );
@@ -452,7 +733,10 @@
     "mouseleave",
     function() {
 
-      zoomContainer.classList.remove("zooming");
+      zoomContainer
+        .classList
+        .remove("zooming");
+
 
       mainImage.style.transformOrigin =
         "center center";
@@ -461,15 +745,48 @@
   );
 
 
+
+  /* =========================
+     MOBILE MODAL
+     ========================= */
+
+  function updateModalImage() {
+
+    modalImage.src =
+      productImages[
+        currentImageIndex
+      ];
+
+
+    imageCounter.textContent =
+      (
+        currentImageIndex + 1
+      )
+      + " / "
+      + productImages.length;
+
+
+    resetMobileZoom();
+
+  }
+
+
+
   zoomContainer.addEventListener(
     "click",
     function() {
 
-      if (window.innerWidth <= 800) {
+      if (
+        window.innerWidth <= 800
+      ) {
 
         updateModalImage();
 
-        modal.classList.add("active");
+
+        modal
+          .classList
+          .add("active");
+
 
         document.body.style.overflow =
           "hidden";
@@ -480,106 +797,503 @@
   );
 
 
+
+  function closeImageModal() {
+
+    modal
+      .classList
+      .remove("active");
+
+
+    document.body.style.overflow =
+      "auto";
+
+
+    resetMobileZoom();
+
+  }
+
+
+
   closeModal.addEventListener(
     "click",
-    function() {
-
-      modal.classList.remove("active");
-
-      document.body.style.overflow =
-        "auto";
-
-    }
+    closeImageModal
   );
 
 
-  modal.addEventListener(
-    "click",
-    function(event) {
 
-      if (event.target === modal) {
+  /* =========================
+     MOBILE PINCH ZOOM
+     ========================= */
 
-        modal.classList.remove("active");
+  let scale = 1;
 
-        document.body.style.overflow =
-          "auto";
+  let startScale = 1;
 
-      }
+  let translateX = 0;
 
-    }
-  );
+  let translateY = 0;
+
+
+  let startTranslateX = 0;
+
+  let startTranslateY = 0;
+
+
+  let pinchStartDistance = 0;
 
 
   let touchStartX = 0;
 
-  let touchEndX = 0;
+  let touchStartY = 0;
+
+
+  let singleTouchStartX = 0;
+
+  let singleTouchStartY = 0;
+
+
+  let isPinching = false;
+
+  let isDragging = false;
+
+
+
+  function getDistance(
+    touch1,
+    touch2
+  ) {
+
+    const x =
+      touch2.clientX
+      - touch1.clientX;
+
+
+    const y =
+      touch2.clientY
+      - touch1.clientY;
+
+
+    return Math.sqrt(
+      x * x
+      +
+      y * y
+    );
+
+  }
+
+
+
+  function applyMobileTransform() {
+
+    modalImage.style.transform =
+      "translate("
+      + translateX
+      + "px, "
+      + translateY
+      + "px)"
+      +
+      " scale("
+      + scale
+      + ")";
+
+  }
+
+
+
+  function resetMobileZoom() {
+
+    scale = 1;
+
+    startScale = 1;
+
+    translateX = 0;
+
+    translateY = 0;
+
+    startTranslateX = 0;
+
+    startTranslateY = 0;
+
+
+    modalImage.style.transform =
+      "translate(0px, 0px) scale(1)";
+
+  }
+
 
 
   modal.addEventListener(
     "touchstart",
     function(event) {
 
-      touchStartX =
-        event.changedTouches[0].screenX;
+
+      /* TWO FINGERS = PINCH */
+
+      if (
+        event.touches.length === 2
+      ) {
+
+        isPinching = true;
+
+        isDragging = false;
+
+
+        pinchStartDistance =
+          getDistance(
+            event.touches[0],
+            event.touches[1]
+          );
+
+
+        startScale =
+          scale;
+
+      }
+
+
+      /* ONE FINGER */
+
+      else if (
+        event.touches.length === 1
+      ) {
+
+        isPinching = false;
+
+
+        singleTouchStartX =
+          event.touches[0]
+            .clientX;
+
+
+        singleTouchStartY =
+          event.touches[0]
+            .clientY;
+
+
+        touchStartX =
+          event.touches[0]
+            .clientX;
+
+
+        touchStartY =
+          event.touches[0]
+            .clientY;
+
+
+        startTranslateX =
+          translateX;
+
+
+        startTranslateY =
+          translateY;
+
+
+        if (
+          scale > 1
+        ) {
+
+          isDragging = true;
+
+        }
+
+      }
 
     },
-    { passive: true }
+    {
+      passive: false
+    }
   );
+
+
+
+  modal.addEventListener(
+    "touchmove",
+    function(event) {
+
+
+      /* PINCH ZOOM */
+
+      if (
+        event.touches.length === 2
+        &&
+        isPinching
+      ) {
+
+        event.preventDefault();
+
+
+        const currentDistance =
+          getDistance(
+            event.touches[0],
+            event.touches[1]
+          );
+
+
+        let newScale =
+          startScale
+          *
+          (
+            currentDistance
+            /
+            pinchStartDistance
+          );
+
+
+        /* MINIMUM ZOOM */
+
+        if (
+          newScale < 1
+        ) {
+
+          newScale = 1;
+
+        }
+
+
+        /* MAXIMUM ZOOM */
+
+        if (
+          newScale > 4
+        ) {
+
+          newScale = 4;
+
+        }
+
+
+        scale =
+          newScale;
+
+
+        if (
+          scale === 1
+        ) {
+
+          translateX = 0;
+
+          translateY = 0;
+
+        }
+
+
+        applyMobileTransform();
+
+      }
+
+
+      /* DRAG WHEN ZOOMED */
+
+      else if (
+        event.touches.length === 1
+        &&
+        scale > 1
+        &&
+        isDragging
+      ) {
+
+        event.preventDefault();
+
+
+        const currentX =
+          event.touches[0]
+            .clientX;
+
+
+        const currentY =
+          event.touches[0]
+            .clientY;
+
+
+        translateX =
+          startTranslateX
+          +
+          (
+            currentX
+            -
+            touchStartX
+          );
+
+
+        translateY =
+          startTranslateY
+          +
+          (
+            currentY
+            -
+            touchStartY
+          );
+
+
+        applyMobileTransform();
+
+      }
+
+    },
+    {
+      passive: false
+    }
+  );
+
 
 
   modal.addEventListener(
     "touchend",
     function(event) {
 
-      touchEndX =
-        event.changedTouches[0].screenX;
 
-      handleSwipe();
+      /*
+      If there are still fingers
+      touching, don't swipe.
+      */
+
+      if (
+        event.touches.length > 0
+      ) {
+
+        return;
+
+      }
+
+
+
+      /* FINISH PINCH */
+
+      if (
+        isPinching
+      ) {
+
+        isPinching = false;
+
+
+        if (
+          scale <= 1.02
+        ) {
+
+          resetMobileZoom();
+
+        }
+
+
+        return;
+
+      }
+
+
+
+      /* FINISH DRAG */
+
+      if (
+        scale > 1
+      ) {
+
+        isDragging = false;
+
+        return;
+
+      }
+
+
+
+      /* NORMAL SWIPE */
+
+      const changedTouch =
+        event.changedTouches[0];
+
+
+      const endX =
+        changedTouch.clientX;
+
+
+      const endY =
+        changedTouch.clientY;
+
+
+      const differenceX =
+        endX
+        -
+        singleTouchStartX;
+
+
+      const differenceY =
+        endY
+        -
+        singleTouchStartY;
+
+
+
+      /*
+      Only treat it as a swipe
+      if horizontal movement
+      is stronger.
+      */
+
+      if (
+        Math.abs(differenceX)
+        < 45
+        ||
+        Math.abs(differenceX)
+        <
+        Math.abs(differenceY)
+      ) {
+
+        return;
+
+      }
+
+
+
+      /* SWIPE LEFT */
+
+      if (
+        differenceX < 0
+      ) {
+
+        currentImageIndex =
+          (
+            currentImageIndex
+            + 1
+          )
+          %
+          productImages.length;
+
+      }
+
+
+      /* SWIPE RIGHT */
+
+      else {
+
+        currentImageIndex =
+          (
+            currentImageIndex
+            - 1
+            +
+            productImages.length
+          )
+          %
+          productImages.length;
+
+      }
+
+
+      mainImage.src =
+        productImages[
+          currentImageIndex
+        ];
+
+
+      updateModalImage();
 
     },
-    { passive: true }
+    {
+      passive: false
+    }
   );
 
 
-  function handleSwipe() {
-
-    const swipeDistance =
-      touchEndX - touchStartX;
-
-    if (Math.abs(swipeDistance) < 50) {
-      return;
-    }
-
-    if (swipeDistance < 0) {
-
-      currentImageIndex++;
-
-      if (
-        currentImageIndex
-        >= productImages.length
-      ) {
-        currentImageIndex = 0;
-      }
-
-    } else {
-
-      currentImageIndex--;
-
-      if (currentImageIndex < 0) {
-        currentImageIndex =
-          productImages.length - 1;
-      }
-
-    }
-
-    mainImage.src =
-      productImages[currentImageIndex];
-
-    updateModalImage();
-
-  }
-
 </script>
+
 
 </body>
 </html>
