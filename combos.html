@@ -16,132 +16,163 @@
 
     body {
       font-family: Arial, sans-serif;
-      background: #ffffff;
-      color: #111111;
+      background: #f7f7f7;
+      color: #111;
     }
 
     header {
-      background: #000000;
-      padding: 25px;
+      background: #000;
+      padding: 20px;
       text-align: center;
     }
 
     .logo {
-      width: 220px;
+      width: 230px;
       max-width: 80%;
       height: auto;
       display: block;
-      margin: 0 auto;
+      margin: 0 auto 20px;
     }
 
     .menu {
-      margin-top: 22px;
       display: flex;
       justify-content: center;
-      gap: 14px;
       flex-wrap: wrap;
+      gap: 15px;
     }
 
     .menu a {
       color: #d4af37;
       text-decoration: none;
-      border: 1px solid #d4af37;
-      padding: 10px 18px;
+      border: 2px solid #d4af37;
+      padding: 12px 25px;
       border-radius: 6px;
-      font-size: 14px;
-      letter-spacing: 1px;
+      font-weight: bold;
       transition: 0.3s;
     }
 
     .menu a:hover {
       background: #d4af37;
-      color: #000000;
+      color: #000;
     }
 
     .hero {
       text-align: center;
-      padding: 70px 20px 45px;
+      padding: 70px 20px 30px;
     }
 
     .hero h1 {
-      font-size: 45px;
-      margin-bottom: 12px;
-    }
-
-    .hero p {
-      color: #666666;
-      font-size: 18px;
-    }
-
-    .products {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 25px;
-    }
-
-    .product {
-      border: 1px solid #dddddd;
-      padding: 20px;
-      text-align: center;
-      border-radius: 10px;
-      background: #ffffff;
-    }
-
-    .product-image {
-      height: 260px;
-      background: #f2f2f2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 18px;
-      border-radius: 8px;
-      color: #888888;
-    }
-
-    .product h3 {
+      font-size: 42px;
       margin-bottom: 10px;
     }
 
-    .price {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 18px;
+    .hero p {
+      color: #666;
+      font-size: 18px;
     }
 
-    .buy-button {
-      display: inline-block;
-      background: #000000;
-      color: #ffffff;
-      text-decoration: none;
-      padding: 12px 20px;
-      border-radius: 6px;
-    }
-
-    .buy-button:hover {
-      background: #d4af37;
-      color: #000000;
-    }
-
-    .back {
+    .coming-soon-section {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px 100px;
       text-align: center;
-      margin: 50px 0;
     }
 
-    .back a {
-      color: #111111;
+    .coming-soon-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 14px;
+      padding: 70px 30px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .coming-soon-card h2 {
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+
+    .coming-soon-card p {
+      font-size: 18px;
+      color: #666;
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    .shop-button {
+      display: inline-block;
+      background: #000;
+      color: #d4af37;
       text-decoration: none;
+      padding: 15px 35px;
+      border-radius: 6px;
       font-weight: bold;
+      border: 2px solid #000;
+      transition: 0.3s;
+    }
+
+    .shop-button:hover {
+      background: #d4af37;
+      color: #000;
+      border-color: #d4af37;
+    }
+
+    footer {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 25px;
     }
 
     @media (max-width: 600px) {
+
+      header {
+        padding: 18px 12px;
+      }
+
+      .logo {
+        width: 200px;
+      }
+
+      .menu {
+        gap: 10px;
+      }
+
+      .menu a {
+        padding: 10px 15px;
+        font-size: 14px;
+      }
+
+      .hero {
+        padding: 50px 20px 25px;
+      }
+
       .hero h1 {
-        font-size: 34px;
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .coming-soon-section {
+        padding: 25px 20px 70px;
+      }
+
+      .coming-soon-card {
+        padding: 50px 20px;
+      }
+
+      .coming-soon-card h2 {
+        font-size: 28px;
+      }
+
+      .coming-soon-card p {
+        font-size: 16px;
+      }
+
+      .shop-button {
+        width: 100%;
       }
     }
   </style>
@@ -152,17 +183,19 @@
 
   <header>
 
-    <img src="first.PNG" alt="First Class Supply" class="logo">
+    <a href="index.html">
+      <img src="first.PNG" alt="First Class Supply" class="logo">
+    </a>
 
     <nav class="menu">
-      <a href="perfumes.html">PERFUMES</a>
-      <a href="sunglasses.html">SUNGLASSES</a>
-      <a href="watches.html">WATCHES</a>
-      <a href="clothing.html">CLOTHING</a>
+      <a href="boxers.html">BOXERS</a>
+      <a href="pants.html">PANTS</a>
+      <a href="tshirts.html">T-SHIRTS</a>
       <a href="combos.html">COMBOS</a>
     </nav>
 
   </header>
+
 
   <section class="hero">
 
@@ -172,38 +205,30 @@
 
   </section>
 
-  <section class="products">
 
-    <div class="product-grid">
+  <section class="coming-soon-section">
 
-      <div class="product">
-        <div class="product-image">Combo Image</div>
-        <h3>Combo 1</h3>
-        <p class="price">$0.00</p>
-        <a href="#" class="buy-button">VIEW COMBO</a>
-      </div>
+    <div class="coming-soon-card">
 
-      <div class="product">
-        <div class="product-image">Combo Image</div>
-        <h3>Combo 2</h3>
-        <p class="price">$0.00</p>
-        <a href="#" class="buy-button">VIEW COMBO</a>
-      </div>
+      <h2>COMING SOON</h2>
 
-      <div class="product">
-        <div class="product-image">Combo Image</div>
-        <h3>Combo 3</h3>
-        <p class="price">$0.00</p>
-        <a href="#" class="buy-button">VIEW COMBO</a>
-      </div>
+      <p>
+        We're putting together exclusive First Class Supply combos.
+        New bundles will be available soon.
+      </p>
+
+      <a href="boxers.html" class="shop-button">
+        SHOP BOXERS
+      </a>
 
     </div>
 
   </section>
 
-  <div class="back">
-    <a href="index.html">← BACK TO HOME</a>
-  </div>
+
+  <footer>
+    <p>© 2026 First Class Supply. All Rights Reserved.</p>
+  </footer>
 
 </body>
 
