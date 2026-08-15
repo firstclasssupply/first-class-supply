@@ -65,6 +65,7 @@
       width: 100%;
     }
 
+    /* FOTO PRINCIPAL */
     .main-image {
       width: 100%;
       height: 520px;
@@ -74,14 +75,26 @@
       justify-content: center;
       align-items: center;
       overflow: hidden;
+      position: relative;
+      cursor: zoom-in;
     }
 
     .main-image img {
       width: 100%;
       height: 100%;
       object-fit: contain;
+      transition: transform 0.2s ease;
+      transform-origin: center center;
     }
 
+    /* ZOOM EN COMPUTADORA */
+    @media (min-width: 801px) {
+      .main-image.zooming img {
+        transform: scale(2.4);
+      }
+    }
+
+    /* MINIATURAS */
     .thumbnails {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -163,6 +176,42 @@
       font-weight: bold;
     }
 
+    /* IMAGEN GRANDE EN CELULAR */
+    .image-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .image-modal.active {
+      display: flex;
+    }
+
+    .image-modal img {
+      max-width: 95%;
+      max-height: 90%;
+      object-fit: contain;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      color: white;
+      font-size: 42px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 10000;
+    }
+
     footer {
       background: #000;
       color: white;
@@ -178,6 +227,7 @@
 
       .main-image {
         height: 380px;
+        cursor: zoom-in;
       }
 
       .product-info h1 {
@@ -187,6 +237,10 @@
       .buy-button {
         width: 100%;
         text-align: center;
+      }
+
+      .thumbnails img {
+        height: 80px;
       }
     }
   </style>
@@ -209,11 +263,12 @@
 
 </header>
 
+
 <main class="product-page">
 
   <div class="product-gallery">
 
-    <div class="main-image">
+    <div class="main-image" id="zoomContainer">
       <img
         id="mainProductImage"
         src="psd-pink-money-front.jpg"
@@ -225,26 +280,27 @@
       <img
         src="psd-pink-money-front.jpg"
         alt="PSD Pink Money Shark Boxer Briefs Front"
-        onclick="document.getElementById('mainProductImage').src=this.src">
+        onclick="changeProductImage(this.src)">
 
       <img
         src="psd-pink-money-back.jpg"
         alt="PSD Pink Money Shark Boxer Briefs Back"
-        onclick="document.getElementById('mainProductImage').src=this.src">
+        onclick="changeProductImage(this.src)">
 
       <img
         src="psd-pink-money-tag-front.jpg"
         alt="PSD Pink Money Shark Tag Front"
-        onclick="document.getElementById('mainProductImage').src=this.src">
+        onclick="changeProductImage(this.src)">
 
       <img
         src="psd-pink-money-tag-back.jpg"
         alt="PSD Pink Money Shark Tag Back"
-        onclick="document.getElementById('mainProductImage').src=this.src">
+        onclick="changeProductImage(this.src)">
 
     </div>
 
   </div>
+
 
   <div class="product-info">
 
@@ -282,7 +338,9 @@
       <strong>Size L only.</strong>
     </div>
 
-    <a href="https://buy.stripe.com/9B6bIU6sE3Pd42v58hfnO02" class="buy-button">
+    <a
+      href="https://buy.stripe.com/9B6bIU6sE3Pd42v58hfnO02"
+      class="buy-button">
       BUY NOW
     </a>
 
@@ -294,9 +352,163 @@
 
 </main>
 
+
+<!-- IMAGEN GRANDE PARA CELULAR -->
+<div class="image-modal" id="imageModal">
+
+  <span class="close-modal" id="closeModal">
+    &times;
+  </span>
+
+  <img
+    id="modalImage"
+    src=""
+    alt="PSD Pink Money Shark Boxer Briefs">
+
+</div>
+
+
 <footer>
   <p>© 2026 First Class Supply. All Rights Reserved.</p>
 </footer>
+
+
+<script>
+
+  const zoomContainer =
+    document.getElementById("zoomContainer");
+
+  const mainImage =
+    document.getElementById("mainProductImage");
+
+  const modal =
+    document.getElementById("imageModal");
+
+  const modalImage =
+    document.getElementById("modalImage");
+
+  const closeModal =
+    document.getElementById("closeModal");
+
+
+  /* CAMBIAR IMAGEN */
+
+  function changeProductImage(src) {
+
+    mainImage.src = src;
+
+    mainImage.style.transformOrigin =
+      "center center";
+
+  }
+
+
+  /* ZOOM SIGUIENDO EL CURSOR */
+
+  zoomContainer.addEventListener(
+    "mouseenter",
+    function() {
+
+      if (window.innerWidth > 800) {
+
+        zoomContainer.classList.add("zooming");
+
+      }
+
+    }
+  );
+
+
+  zoomContainer.addEventListener(
+    "mousemove",
+    function(event) {
+
+      if (window.innerWidth <= 800) return;
+
+      const rectangle =
+        zoomContainer.getBoundingClientRect();
+
+      const x =
+        ((event.clientX - rectangle.left)
+        / rectangle.width) * 100;
+
+      const y =
+        ((event.clientY - rectangle.top)
+        / rectangle.height) * 100;
+
+      mainImage.style.transformOrigin =
+        x + "% " + y + "%";
+
+    }
+  );
+
+
+  zoomContainer.addEventListener(
+    "mouseleave",
+    function() {
+
+      zoomContainer.classList.remove("zooming");
+
+      mainImage.style.transformOrigin =
+        "center center";
+
+    }
+  );
+
+
+  /* ABRIR IMAGEN EN CELULAR */
+
+  zoomContainer.addEventListener(
+    "click",
+    function() {
+
+      if (window.innerWidth <= 800) {
+
+        modalImage.src = mainImage.src;
+
+        modal.classList.add("active");
+
+        document.body.style.overflow =
+          "hidden";
+
+      }
+
+    }
+  );
+
+
+  /* CERRAR IMAGEN */
+
+  closeModal.addEventListener(
+    "click",
+    function() {
+
+      modal.classList.remove("active");
+
+      document.body.style.overflow =
+        "auto";
+
+    }
+  );
+
+
+  modal.addEventListener(
+    "click",
+    function(event) {
+
+      if (event.target === modal) {
+
+        modal.classList.remove("active");
+
+        document.body.style.overflow =
+          "auto";
+
+      }
+
+    }
+  );
+
+</script>
 
 </body>
 </html>
