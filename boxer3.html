@@ -74,12 +74,22 @@
       justify-content: center;
       align-items: center;
       overflow: hidden;
+      position: relative;
+      cursor: zoom-in;
     }
 
     .main-image img {
       width: 100%;
       height: 100%;
       object-fit: contain;
+      transition: transform 0.2s ease;
+      transform-origin: center center;
+    }
+
+    @media (min-width: 801px) {
+      .main-image.zooming img {
+        transform: scale(2.4);
+      }
     }
 
     .thumbnails {
@@ -163,6 +173,54 @@
       font-weight: bold;
     }
 
+    .image-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.96);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      touch-action: pan-y;
+    }
+
+    .image-modal.active {
+      display: flex;
+    }
+
+    .image-modal img {
+      max-width: 95%;
+      max-height: 88%;
+      object-fit: contain;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 18px;
+      right: 24px;
+      color: white;
+      font-size: 42px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 10000;
+    }
+
+    .image-counter {
+      position: absolute;
+      bottom: 22px;
+      color: white;
+      font-size: 14px;
+      background: rgba(0,0,0,0.45);
+      padding: 7px 12px;
+      border-radius: 20px;
+    }
+
     footer {
       background: #000;
       color: white;
@@ -188,6 +246,10 @@
         width: 100%;
         text-align: center;
       }
+
+      .thumbnails img {
+        height: 80px;
+      }
     }
   </style>
 </head>
@@ -195,7 +257,6 @@
 <body>
 
 <header>
-
   <a href="index.html">
     <img src="first.PNG" class="logo" alt="First Class Supply">
   </a>
@@ -206,14 +267,13 @@
     <a href="tshirts.html">T-SHIRTS</a>
     <a href="combos.html">COMBOS</a>
   </nav>
-
 </header>
 
 <main class="product-page">
 
   <div class="product-gallery">
 
-    <div class="main-image">
+    <div class="main-image" id="zoomContainer">
       <img
         id="mainProductImage"
         src="psd-spongebob-front.jpg"
@@ -221,27 +281,10 @@
     </div>
 
     <div class="thumbnails">
-
-      <img
-        src="psd-spongebob-front.jpg"
-        alt="PSD SpongeBob & Squidward Boxer Briefs Front"
-        onclick="document.getElementById('mainProductImage').src=this.src">
-
-      <img
-        src="psd-spongebob-back.jpg"
-        alt="PSD SpongeBob & Squidward Boxer Briefs Back"
-        onclick="document.getElementById('mainProductImage').src=this.src">
-
-      <img
-        src="psd-spongebob-tag-front.jpg"
-        alt="PSD SpongeBob & Squidward Tag Front"
-        onclick="document.getElementById('mainProductImage').src=this.src">
-
-      <img
-        src="psd-spongebob-tag-back.jpg"
-        alt="PSD SpongeBob & Squidward Tag Back"
-        onclick="document.getElementById('mainProductImage').src=this.src">
-
+      <img src="psd-spongebob-front.jpg" onclick="changeProductImage(0)">
+      <img src="psd-spongebob-back.jpg" onclick="changeProductImage(1)">
+      <img src="psd-spongebob-tag-front.jpg" onclick="changeProductImage(2)">
+      <img src="psd-spongebob-tag-back.jpg" onclick="changeProductImage(3)">
     </div>
 
   </div>
@@ -250,9 +293,7 @@
 
     <h1>PSD SpongeBob & Squidward Boxer Briefs</h1>
 
-    <div class="price">
-      $19.99
-    </div>
+    <div class="price">$19.99</div>
 
     <div class="description">
       Authentic PSD boxer briefs featuring a bold SpongeBob & Squidward design.
@@ -282,7 +323,9 @@
       <strong>Size L only.</strong>
     </div>
 
-    <a href="https://buy.stripe.com/eVq14g18ketRbuXbwFfnO03" class="buy-button">
+    <a
+      href="https://buy.stripe.com/eVq14g18ketRbuXbwFfnO03"
+      class="buy-button">
       BUY NOW
     </a>
 
@@ -294,9 +337,249 @@
 
 </main>
 
+<div class="image-modal" id="imageModal">
+
+  <span class="close-modal" id="closeModal">&times;</span>
+
+  <img
+    id="modalImage"
+    src=""
+    alt="PSD SpongeBob & Squidward Boxer Briefs">
+
+  <div class="image-counter" id="imageCounter">
+    1 / 4
+  </div>
+
+</div>
+
 <footer>
   <p>© 2026 First Class Supply. All Rights Reserved.</p>
 </footer>
+
+<script>
+
+  const productImages = [
+    "psd-spongebob-front.jpg",
+    "psd-spongebob-back.jpg",
+    "psd-spongebob-tag-front.jpg",
+    "psd-spongebob-tag-back.jpg"
+  ];
+
+  let currentImageIndex = 0;
+
+  const zoomContainer =
+    document.getElementById("zoomContainer");
+
+  const mainImage =
+    document.getElementById("mainProductImage");
+
+  const modal =
+    document.getElementById("imageModal");
+
+  const modalImage =
+    document.getElementById("modalImage");
+
+  const closeModal =
+    document.getElementById("closeModal");
+
+  const imageCounter =
+    document.getElementById("imageCounter");
+
+
+  function changeProductImage(index) {
+
+    currentImageIndex = index;
+
+    mainImage.src =
+      productImages[currentImageIndex];
+
+    mainImage.style.transformOrigin =
+      "center center";
+
+  }
+
+
+  function updateModalImage() {
+
+    modalImage.src =
+      productImages[currentImageIndex];
+
+    imageCounter.textContent =
+      (currentImageIndex + 1)
+      + " / "
+      + productImages.length;
+
+  }
+
+
+  zoomContainer.addEventListener(
+    "mouseenter",
+    function() {
+
+      if (window.innerWidth > 800) {
+        zoomContainer.classList.add("zooming");
+      }
+
+    }
+  );
+
+
+  zoomContainer.addEventListener(
+    "mousemove",
+    function(event) {
+
+      if (window.innerWidth <= 800) return;
+
+      const rect =
+        zoomContainer.getBoundingClientRect();
+
+      const x =
+        ((event.clientX - rect.left)
+        / rect.width) * 100;
+
+      const y =
+        ((event.clientY - rect.top)
+        / rect.height) * 100;
+
+      mainImage.style.transformOrigin =
+        x + "% " + y + "%";
+
+    }
+  );
+
+
+  zoomContainer.addEventListener(
+    "mouseleave",
+    function() {
+
+      zoomContainer.classList.remove("zooming");
+
+      mainImage.style.transformOrigin =
+        "center center";
+
+    }
+  );
+
+
+  zoomContainer.addEventListener(
+    "click",
+    function() {
+
+      if (window.innerWidth <= 800) {
+
+        updateModalImage();
+
+        modal.classList.add("active");
+
+        document.body.style.overflow =
+          "hidden";
+
+      }
+
+    }
+  );
+
+
+  closeModal.addEventListener(
+    "click",
+    function() {
+
+      modal.classList.remove("active");
+
+      document.body.style.overflow =
+        "auto";
+
+    }
+  );
+
+
+  modal.addEventListener(
+    "click",
+    function(event) {
+
+      if (event.target === modal) {
+
+        modal.classList.remove("active");
+
+        document.body.style.overflow =
+          "auto";
+
+      }
+
+    }
+  );
+
+
+  let touchStartX = 0;
+
+  let touchEndX = 0;
+
+
+  modal.addEventListener(
+    "touchstart",
+    function(event) {
+
+      touchStartX =
+        event.changedTouches[0].screenX;
+
+    },
+    { passive: true }
+  );
+
+
+  modal.addEventListener(
+    "touchend",
+    function(event) {
+
+      touchEndX =
+        event.changedTouches[0].screenX;
+
+      handleSwipe();
+
+    },
+    { passive: true }
+  );
+
+
+  function handleSwipe() {
+
+    const swipeDistance =
+      touchEndX - touchStartX;
+
+    if (Math.abs(swipeDistance) < 50) {
+      return;
+    }
+
+    if (swipeDistance < 0) {
+
+      currentImageIndex++;
+
+      if (
+        currentImageIndex
+        >= productImages.length
+      ) {
+        currentImageIndex = 0;
+      }
+
+    } else {
+
+      currentImageIndex--;
+
+      if (currentImageIndex < 0) {
+        currentImageIndex =
+          productImages.length - 1;
+      }
+
+    }
+
+    mainImage.src =
+      productImages[currentImageIndex];
+
+    updateModalImage();
+
+  }
+
+</script>
 
 </body>
 </html>
