@@ -36,7 +36,9 @@
     .logo {
       width: 230px;
       max-width: 80%;
-      margin-bottom: 20px;
+      height: auto;
+      display: block;
+      margin: 0 auto 20px;
     }
 
     .menu {
@@ -96,14 +98,17 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
+      object-position: center;
       transition: transform 0.15s ease;
       transform-origin: center center;
     }
 
     @media (hover: hover) and (pointer: fine) {
+
       .main-image:hover img {
         transform: scale(2);
       }
+
     }
 
     .zoom-hint {
@@ -118,7 +123,7 @@
       pointer-events: none;
     }
 
-    /* THUMBNAILS */
+    /* SQUARE THUMBNAILS */
 
     .thumbnails {
       display: grid;
@@ -127,25 +132,34 @@
       margin-top: 12px;
     }
 
-    .thumbnails img {
+    .thumbnail {
       width: 100%;
       aspect-ratio: 1 / 1;
-      height: auto;
+      background: #fff;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.2s;
+    }
+
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
       object-fit: contain;
       object-position: center;
-      border-radius: 8px;
-      cursor: pointer;
-      border: 2px solid transparent;
-      background: #fff;
-      transition: 0.2s;
-      padding: 2px;
+      display: block;
     }
 
-    .thumbnails img:hover {
+    .thumbnail:hover {
       border-color: #d4af37;
+      transform: translateY(-2px);
     }
 
-    .thumbnails img.active {
+    .thumbnail.active {
       border-color: #d4af37;
     }
 
@@ -154,6 +168,7 @@
     .product-info h1 {
       font-size: 42px;
       margin-bottom: 15px;
+      line-height: 1.15;
     }
 
     .price {
@@ -197,7 +212,7 @@
       border-radius: 6px;
       font-size: 18px;
       font-weight: bold;
-      border: none;
+      border: 2px solid #000;
       cursor: pointer;
       transition: 0.3s;
     }
@@ -205,6 +220,7 @@
     .buy-button:hover {
       background: #d4af37;
       color: #000;
+      border-color: #d4af37;
     }
 
     .back {
@@ -215,6 +231,10 @@
       color: #555;
       text-decoration: none;
       font-weight: bold;
+    }
+
+    .back a:hover {
+      color: #111;
     }
 
     /* FULL SCREEN VIEWER */
@@ -313,7 +333,7 @@
       top: 25px;
       left: 50%;
       transform: translateX(-50%);
-      color: rgba(255,255,255,0.8);
+      color: rgba(255, 255, 255, 0.8);
       font-size: 13px;
       z-index: 10001;
       text-align: center;
@@ -328,9 +348,26 @@
       padding: 25px;
     }
 
-    /* MOBILE */
+    /* TABLET / MOBILE */
 
     @media (max-width: 800px) {
+
+      header {
+        padding: 18px 12px;
+      }
+
+      .logo {
+        width: 200px;
+      }
+
+      .menu {
+        gap: 10px;
+      }
+
+      .menu a {
+        padding: 10px 15px;
+        font-size: 14px;
+      }
 
       .product-page {
         grid-template-columns: 1fr;
@@ -375,7 +412,7 @@
     @media (max-width: 500px) {
 
       .main-image {
-        height: 380px;
+        height: 400px;
       }
 
       .thumbnails {
@@ -388,32 +425,51 @@
 
 </head>
 
+
 <body>
+
 
 <header>
 
   <a href="index.html">
+
     <img
       src="first.PNG"
       class="logo"
       alt="First Class Supply">
+
   </a>
 
+
   <nav class="menu">
+
     <a href="boxers.html">BOXERS</a>
+
     <a href="pants.html">PANTS</a>
+
     <a href="tshirts.html">T-SHIRTS</a>
+
     <a href="combos.html">COMBOS</a>
+
   </nav>
 
 </header>
 
 
+
 <main class="product-page">
+
+
+  <!-- PRODUCT GALLERY -->
 
   <div class="product-gallery">
 
-    <div class="main-image" id="mainImageContainer">
+
+    <!-- MAIN IMAGE -->
+
+    <div
+      class="main-image"
+      id="mainImageContainer">
 
       <img
         id="mainProductImage"
@@ -427,130 +483,227 @@
     </div>
 
 
+
+    <!-- THUMBNAILS -->
+
     <div class="thumbnails">
 
-      <img
-        src="true-religion-cargo-black-front.png"
-        alt="True Religion Cargo Pants Front"
-        class="active"
+
+      <div
+        class="thumbnail active"
         onclick="changeImage(this)">
 
-      <img
-        src="true-religion-cargo-black-back.png"
-        alt="True Religion Cargo Pants Back"
+        <img
+          src="true-religion-cargo-black-front.png"
+          alt="True Religion Cargo Pants Front">
+
+      </div>
+
+
+      <div
+        class="thumbnail"
         onclick="changeImage(this)">
 
-      <img
-        src="true-religion-cargo-black-waist-detail.png"
-        alt="True Religion Cargo Pants Waist Detail"
+        <img
+          src="true-religion-cargo-black-back.png"
+          alt="True Religion Cargo Pants Back">
+
+      </div>
+
+
+      <div
+        class="thumbnail"
         onclick="changeImage(this)">
 
-      <img
-        src="true-religion-cargo-black-back-detail.png"
-        alt="True Religion Cargo Pants Back Detail"
+        <img
+          src="true-religion-cargo-black-waist-detail.png"
+          alt="True Religion Cargo Pants Waist Detail">
+
+      </div>
+
+
+      <div
+        class="thumbnail"
         onclick="changeImage(this)">
 
-      <img
-        src="true-religion-black-tag-front.png"
-        alt="True Religion Cargo Pants Tag Front"
+        <img
+          src="true-religion-cargo-black-back-detail.png"
+          alt="True Religion Cargo Pants Back Detail">
+
+      </div>
+
+
+      <div
+        class="thumbnail"
         onclick="changeImage(this)">
 
-      <img
-        src="true-religion-cargo-black-tag-back.png"
-        alt="True Religion Cargo Pants Tag Back"
+        <img
+          src="true-religion-black-tag-front.png"
+          alt="True Religion Cargo Pants Tag Front">
+
+      </div>
+
+
+      <div
+        class="thumbnail"
         onclick="changeImage(this)">
+
+        <img
+          src="true-religion-cargo-black-tag-back.png"
+          alt="True Religion Cargo Pants Tag Back">
+
+      </div>
+
 
     </div>
 
   </div>
 
 
+
+  <!-- PRODUCT INFORMATION -->
+
   <div class="product-info">
+
 
     <h1>
       True Religion Cargo Pants - Jet Black
     </h1>
 
+
     <div class="price">
       $74.99
     </div>
 
+
     <div class="description">
-      Authentic True Religion cargo pants in Jet Black featuring contrast white
-      stitching, cargo pockets and signature True Religion details.
-      Brand new with tags.
+
+      Authentic True Religion cargo pants in Jet Black featuring
+      contrast white stitching, cargo pockets and signature
+      True Religion details. Brand new with tags.
+
     </div>
 
+
     <div class="detail">
+
       <strong>Available Size:</strong>
       30 / L
+
     </div>
 
+
     <div class="detail">
+
       <strong>Color:</strong>
       Jet Black
+
     </div>
 
+
     <div class="detail">
+
       <strong>Condition:</strong>
       Brand New With Tags
+
     </div>
+
 
     <div class="detail">
+
       <strong>Authenticity:</strong>
       100% Authentic
+
     </div>
+
 
     <div class="stock">
+
       ✓ In Stock
+
     </div>
 
+
     <div class="shipping">
+
       Standard U.S. Shipping: $7
+
       <br>
+
       Free Local Pickup / Delivery — South Florida Only
+
       <br>
-      <strong>Size 30 / L available.</strong>
+
+      <strong>
+        Size 30 / L available.
+      </strong>
+
     </div>
+
+
+
+    <!-- STRIPE BUY BUTTON -->
 
     <a
       href="https://buy.stripe.com/fZufZa9EQadBcz19oxfnO08"
       class="buy-button"
       target="_blank"
       rel="noopener noreferrer">
+
       BUY NOW
+
     </a>
 
+
     <div class="back">
+
       <a href="pants.html">
         ← BACK TO PANTS
       </a>
+
     </div>
 
+
   </div>
+
 
 </main>
 
 
-<div class="image-viewer" id="imageViewer">
+
+<!-- FULL SCREEN IMAGE VIEWER -->
+
+<div
+  class="image-viewer"
+  id="imageViewer">
+
 
   <button
     class="close-viewer"
     id="closeViewer"
     aria-label="Close">
+
     ×
+
   </button>
 
+
   <div class="viewer-help">
+
     Swipe left/right • Pinch to zoom • Swipe down to close
+
   </div>
+
 
   <button
     class="viewer-arrow left"
     id="previousImage"
     aria-label="Previous image">
+
     ‹
+
   </button>
+
 
   <div
     class="viewer-image-container"
@@ -563,38 +716,56 @@
 
   </div>
 
+
   <button
     class="viewer-arrow right"
     id="nextImage"
     aria-label="Next image">
+
     ›
+
   </button>
+
 
   <div
     class="viewer-counter"
     id="viewerCounter">
+
     1 / 6
+
   </div>
+
 
 </div>
 
 
+
 <footer>
+
   <p>
     © 2026 First Class Supply. All Rights Reserved.
   </p>
+
 </footer>
+
 
 
 <script>
 
   const productImages = [
+
     "true-religion-cargo-black-front.png",
+
     "true-religion-cargo-black-back.png",
+
     "true-religion-cargo-black-waist-detail.png",
+
     "true-religion-cargo-black-back-detail.png",
+
     "true-religion-black-tag-front.png",
+
     "true-religion-cargo-black-tag-back.png"
+
   ];
 
 
@@ -627,35 +798,62 @@
 
 
   let currentIndex = 0;
+
   let scale = 1;
+
   let translateX = 0;
+
   let translateY = 0;
+
   let startX = 0;
+
   let startY = 0;
+
   let lastX = 0;
+
   let lastY = 0;
+
   let startDistance = 0;
+
   let startScale = 1;
+
   let isDragging = false;
 
 
+
+  /* CHANGE MAIN IMAGE */
+
   function changeImage(element) {
 
-    mainProductImage.src = element.src;
+    const selectedImage =
+      element.querySelector("img");
 
-    currentIndex = productImages.findIndex(image =>
-      element.src.includes(image)
-    );
+    mainProductImage.src =
+      selectedImage.src;
+
+
+    currentIndex =
+      productImages.findIndex(image =>
+        selectedImage.src.includes(image)
+      );
+
 
     document
-      .querySelectorAll(".thumbnails img")
-      .forEach(img => {
-        img.classList.remove("active");
+      .querySelectorAll(".thumbnail")
+      .forEach(item => {
+
+        item.classList.remove("active");
+
       });
 
+
     element.classList.add("active");
+
   }
 
+
+
+  /* DESKTOP HOVER ZOOM */
 
   mainImageContainer.addEventListener(
     "mousemove",
@@ -670,17 +868,22 @@
         const rect =
           mainImageContainer.getBoundingClientRect();
 
+
         const x =
           ((event.clientX - rect.left) /
           rect.width) * 100;
+
 
         const y =
           ((event.clientY - rect.top) /
           rect.height) * 100;
 
+
         mainProductImage.style.transformOrigin =
           `${x}% ${y}%`;
+
       }
+
     }
   );
 
@@ -696,6 +899,9 @@
   );
 
 
+
+  /* OPEN FULL SCREEN */
+
   mainImageContainer.addEventListener(
     "click",
     function() {
@@ -705,38 +911,56 @@
           mainProductImage.src.includes(image)
         );
 
+
       if (currentIndex < 0) {
+
         currentIndex = 0;
+
       }
 
+
       openViewer();
+
     }
   );
+
 
 
   function openViewer() {
 
     resetViewerTransform();
 
+
     viewerImage.src =
       productImages[currentIndex];
 
+
     updateCounter();
+
 
     imageViewer.classList.add("open");
 
+
     document.body.classList.add("no-scroll");
+
   }
 
+
+
+  /* CLOSE VIEWER */
 
   function closeImageViewer() {
 
     imageViewer.classList.remove("open");
 
+
     document.body.classList.remove("no-scroll");
 
+
     resetViewerTransform();
+
   }
+
 
 
   closeViewer.addEventListener(
@@ -746,46 +970,68 @@
       event.stopPropagation();
 
       closeImageViewer();
+
     }
   );
 
+
+
+  /* NEXT IMAGE */
 
   function showNextImage() {
 
     currentIndex++;
 
+
     if (
       currentIndex >=
       productImages.length
     ) {
+
       currentIndex = 0;
+
     }
 
+
     resetViewerTransform();
+
 
     viewerImage.src =
       productImages[currentIndex];
 
+
     updateCounter();
+
   }
 
+
+
+  /* PREVIOUS IMAGE */
 
   function showPreviousImage() {
 
     currentIndex--;
 
+
     if (currentIndex < 0) {
+
       currentIndex =
         productImages.length - 1;
+
     }
 
+
     resetViewerTransform();
+
 
     viewerImage.src =
       productImages[currentIndex];
 
+
     updateCounter();
+
   }
+
 
 
   nextImage.addEventListener(
@@ -795,6 +1041,7 @@
       event.stopPropagation();
 
       showNextImage();
+
     }
   );
 
@@ -806,33 +1053,48 @@
       event.stopPropagation();
 
       showPreviousImage();
+
     }
   );
 
+
+
+  /* COUNTER */
 
   function updateCounter() {
 
     viewerCounter.textContent =
       `${currentIndex + 1} / ${productImages.length}`;
+
   }
 
+
+
+  /* RESET ZOOM */
 
   function resetViewerTransform() {
 
     scale = 1;
+
     translateX = 0;
+
     translateY = 0;
+
 
     viewerImage.style.transform =
       "translate3d(0px, 0px, 0px) scale(1)";
+
   }
+
 
 
   function updateViewerTransform() {
 
     viewerImage.style.transform =
       `translate3d(${translateX}px, ${translateY}px, 0) scale(${scale})`;
+
   }
+
 
 
   function getDistance(touch1, touch2) {
@@ -841,15 +1103,21 @@
       touch2.clientX -
       touch1.clientX;
 
+
     const y =
       touch2.clientY -
       touch1.clientY;
 
+
     return Math.sqrt(
       x * x + y * y
     );
+
   }
 
+
+
+  /* MOBILE TOUCH */
 
   viewerContainer.addEventListener(
     "touchstart",
@@ -863,9 +1131,12 @@
             event.touches[1]
           );
 
+
         startScale = scale;
 
+
         return;
+
       }
 
 
@@ -874,18 +1145,26 @@
         startX =
           event.touches[0].clientX;
 
+
         startY =
           event.touches[0].clientY;
 
+
         lastX = startX;
+
         lastY = startY;
 
+
         isDragging = true;
+
       }
 
     },
+
     { passive: false }
+
   );
+
 
 
   viewerContainer.addEventListener(
@@ -903,10 +1182,12 @@
             event.touches[1]
           );
 
+
         let newScale =
           startScale *
           (currentDistance /
           startDistance);
+
 
         newScale =
           Math.max(
@@ -914,11 +1195,15 @@
             Math.min(newScale, 4)
           );
 
+
         scale = newScale;
+
 
         updateViewerTransform();
 
+
         return;
+
       }
 
 
@@ -930,11 +1215,14 @@
         const currentX =
           event.touches[0].clientX;
 
+
         const currentY =
           event.touches[0].clientY;
 
+
         const moveX =
           currentX - lastX;
+
 
         const moveY =
           currentY - lastY;
@@ -943,30 +1231,42 @@
         if (scale > 1) {
 
           translateX += moveX;
+
           translateY += moveY;
+
 
           updateViewerTransform();
 
-        } else {
+        }
+
+        else {
 
           translateX =
             currentX - startX;
 
+
           translateY =
             currentY - startY;
 
+
           viewerImage.style.transform =
             `translate3d(${translateX}px, ${translateY}px, 0) scale(1)`;
+
         }
 
 
         lastX = currentX;
+
         lastY = currentY;
+
       }
 
     },
+
     { passive: false }
+
   );
+
 
 
   viewerContainer.addEventListener(
@@ -974,27 +1274,39 @@
     function(event) {
 
       if (event.touches.length > 0) {
+
         return;
+
       }
 
+
       if (!isDragging) {
+
         return;
+
       }
+
 
       isDragging = false;
 
 
       if (scale > 1) {
+
         return;
+
       }
 
 
       const horizontalDistance =
         translateX;
 
+
       const verticalDistance =
         translateY;
 
+
+
+      /* SWIPE DOWN */
 
       if (
         verticalDistance > 100 &&
@@ -1005,8 +1317,12 @@
         closeImageViewer();
 
         return;
+
       }
 
+
+
+      /* SWIPE LEFT */
 
       if (
         horizontalDistance < -70 &&
@@ -1017,8 +1333,12 @@
         showNextImage();
 
         return;
+
       }
 
+
+
+      /* SWIPE RIGHT */
 
       if (
         horizontalDistance > 70 &&
@@ -1029,13 +1349,18 @@
         showPreviousImage();
 
         return;
+
       }
 
 
       resetViewerTransform();
+
     }
   );
 
+
+
+  /* DOUBLE CLICK ZOOM */
 
   viewerImage.addEventListener(
     "dblclick",
@@ -1043,21 +1368,32 @@
 
       event.preventDefault();
 
+
       if (scale === 1) {
 
         scale = 2;
 
-      } else {
-
-        scale = 1;
-        translateX = 0;
-        translateY = 0;
       }
 
+      else {
+
+        scale = 1;
+
+        translateX = 0;
+
+        translateY = 0;
+
+      }
+
+
       updateViewerTransform();
+
     }
   );
 
+
+
+  /* KEYBOARD */
 
   document.addEventListener(
     "keydown",
@@ -1066,23 +1402,38 @@
       if (
         !imageViewer.classList.contains("open")
       ) {
+
         return;
+
       }
+
 
       if (event.key === "Escape") {
+
         closeImageViewer();
+
       }
+
 
       if (event.key === "ArrowRight") {
+
         showNextImage();
+
       }
 
+
       if (event.key === "ArrowLeft") {
+
         showPreviousImage();
+
       }
+
     }
   );
 
+
+
+  /* CLICK OUTSIDE IMAGE */
 
   imageViewer.addEventListener(
     "click",
@@ -1094,11 +1445,14 @@
       ) {
 
         closeImageViewer();
+
       }
+
     }
   );
 
 </script>
+
 
 </body>
 
