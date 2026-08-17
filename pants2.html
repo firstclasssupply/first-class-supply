@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>True Religion Ricky Relaxed Straight Jeans | First Class Supply</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      color: #111;
+    }
+
+    /* HEADER */
+
+    header {
+      background: #000;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .logo {
+      width: 230px;
+      max-width: 80%;
+      height: auto;
+      display: block;
+      margin: 0 auto 20px;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .menu a {
+      color: #d4af37;
+      text-decoration: none;
+      border: 2px solid #d4af37;
+      padding: 12px 25px;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .menu a:hover {
+      background: #d4af37;
+      color: #000;
+    }
+
+    /* PRODUCT */
+
+    .product-container {
+      max-width: 1400px;
+      margin: 60px auto;
+      padding: 0 30px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    /* GALLERY */
+
+    .gallery {
+      width: 100%;
+    }
+
+    .main-image-container {
+      width: 100%;
+      height: 650px;
+      background: #fff;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      cursor: zoom-in;
+    }
+
+    .main-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 10px;
+    }
+
+    .zoom-text {
+      position: absolute;
+      right: 15px;
+      bottom: 15px;
+      background: rgba(0, 0, 0, 0.75);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 25px;
+      font-size: 14px;
+    }
+
+    /* THUMBNAILS */
+
+    .thumbnails {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .thumbnail {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: #fff;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .thumbnail:hover {
+      border-color: #d4af37;
+    }
+
+    .thumbnail.active {
+      border-color: #d4af37;
+    }
+
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 4px;
+    }
+
+    /* PRODUCT INFO */
+
+    .product-info {
+      padding-top: 5px;
+    }
+
+    .product-info h1 {
+      font-size: 46px;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .price {
+      color: #b88a00;
+      font-size: 34px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+    .description {
+      color: #555;
+      font-size: 19px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      max-width: 650px;
+    }
+
+    .details {
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    .details strong {
+      font-weight: bold;
+    }
+
+    .stock {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 25px 0 20px;
+    }
+
+    .shipping {
+      color: #666;
+      font-size: 17px;
+      line-height: 1.5;
+      margin-bottom: 30px;
+    }
+
+    .shipping strong {
+      color: #555;
+    }
+
+    /* BUY BUTTON */
+
+    .buy-button {
+      display: inline-block;
+      min-width: 220px;
+      background: #000;
+      color: #d4af37;
+      text-decoration: none;
+      padding: 18px 35px;
+      border-radius: 7px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      border: 2px solid #000;
+      transition: 0.3s;
+    }
+
+    .buy-button:hover {
+      background: #d4af37;
+      color: #000;
+      border-color: #d4af37;
+    }
+
+    .back-link {
+      display: block;
+      margin-top: 30px;
+      color: #555;
+      font-size: 17px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      color: #b88a00;
+    }
+
+    /* IMAGE MODAL */
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.92);
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .modal img {
+      max-width: 95%;
+      max-height: 95%;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: white;
+      font-size: 45px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 25px;
+      margin-top: 80px;
+    }
+
+    /* TABLET */
+
+    @media (max-width: 950px) {
+
+      .product-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-top: 35px;
+      }
+
+      .main-image-container {
+        height: 600px;
+      }
+
+      .product-info h1 {
+        font-size: 38px;
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 600px) {
+
+      header {
+        padding: 18px 12px;
+      }
+
+      .logo {
+        width: 200px;
+      }
+
+      .menu {
+        gap: 10px;
+      }
+
+      .menu a {
+        padding: 10px 15px;
+        font-size: 14px;
+      }
+
+      .product-container {
+        margin: 25px auto;
+        padding: 0 15px;
+        gap: 30px;
+      }
+
+      .main-image-container {
+        height: 480px;
+        border-radius: 10px;
+      }
+
+      .main-image {
+        padding: 5px;
+      }
+
+      .thumbnails {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+      }
+
+      .product-info h1 {
+        font-size: 31px;
+      }
+
+      .price {
+        font-size: 30px;
+      }
+
+      .description {
+        font-size: 17px;
+      }
+
+      .details {
+        font-size: 17px;
+      }
+
+      .shipping {
+        font-size: 16px;
+      }
+
+      .buy-button {
+        width: 100%;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- HEADER -->
+
+  <header>
+
+    <a href="index.html">
+      <img
+        src="first.PNG"
+        alt="First Class Supply"
+        class="logo">
+    </a>
+
+    <nav class="menu">
+
+      <a href="boxers.html">
+        BOXERS
+      </a>
+
+      <a href="pants.html">
+        PANTS
+      </a>
+
+      <a href="tshirts.html">
+        T-SHIRTS
+      </a>
+
+      <a href="combos.html">
+        COMBOS
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <!-- PRODUCT -->
+
+  <main class="product-container">
+
+
+    <!-- IMAGE GALLERY -->
+
+    <section class="gallery">
+
+
+      <div
+        class="main-image-container"
+        onclick="openModal()">
+
+        <img
+          id="mainImage"
+          class="main-image"
+          src="true-religion-ricky-blue-front.png"
+          alt="True Religion Ricky Relaxed Straight Jeans">
+
+        <span class="zoom-text">
+          Click to enlarge
+        </span>
+
+      </div>
+
+
+      <!-- THUMBNAILS -->
+
+      <div class="thumbnails">
+
+
+        <div
+          class="thumbnail active"
+          onclick="changeImage('true-religion-ricky-blue-front.png', this)">
+
+          <img
+            src="true-religion-ricky-blue-front.png"
+            alt="Front">
+
+        </div>
+
+
+        <div
+          class="thumbnail"
+          onclick="changeImage('true-religion-ricky-blue-back.png', this)">
+
+          <img
+            src="true-religion-ricky-blue-back.png"
+            alt="Back">
+
+        </div>
+
+
+        <div
+          class="thumbnail"
+          onclick="changeImage('true-religion-ricky-blue-size.png', this)">
+
+          <img
+            src="true-religion-ricky-blue-size.png"
+            alt="Size detail">
+
+        </div>
+
+
+        <div
+          class="thumbnail"
+          onclick="changeImage('true-religion-ricky-blue-pocket.png', this)">
+
+          <img
+            src="true-religion-ricky-blue-pocket.png"
+            alt="Pocket detail">
+
+        </div>
+
+
+        <div
+          class="thumbnail"
+          onclick="changeImage('true-religion-ricky-blue-back-pocket.png', this)">
+
+          <img
+            src="true-religion-ricky-blue-back-pocket.png"
+            alt="Back pocket detail">
+
+        </div>
+
+
+        <div
+          class="thumbnail"
+          onclick="changeImage('true-religion-ricky-blue-tags.png', this)">
+
+          <img
+            src="true-religion-ricky-blue-tags.png"
+            alt="True Religion tags">
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- PRODUCT INFORMATION -->
+
+    <section class="product-info">
+
+      <h1>
+        True Religion Ricky Relaxed Straight Jeans
+      </h1>
+
+      <div class="price">
+        $89.99
+      </div>
+
+
+      <p class="description">
+        Authentic True Religion Ricky jeans featuring a classic blue denim
+        wash, signature horseshoe stitching and iconic True Religion details.
+        Relaxed straight fit. Brand new with tags.
+      </p>
+
+
+      <div class="details">
+
+        <p>
+          <strong>Available Size:</strong>
+          W30 / L34
+        </p>
+
+        <p>
+          <strong>Fit:</strong>
+          Ricky Relaxed Straight
+        </p>
+
+        <p>
+          <strong>Color:</strong>
+          Blue Denim
+        </p>
+
+        <p>
+          <strong>Condition:</strong>
+          Brand New With Tags
+        </p>
+
+        <p>
+          <strong>Authenticity:</strong>
+          100% Authentic
+        </p>
+
+      </div>
+
+
+      <div class="stock">
+        ✓ In Stock
+      </div>
+
+
+      <div class="shipping">
+
+        Standard U.S. Shipping: $7
+        <br>
+
+        Free Local Pickup / Delivery — South Florida Only
+        <br>
+
+        <strong>
+          Size W30 / L34 available.
+        </strong>
+
+      </div>
+
+
+      <!-- STRIPE BUY BUTTON -->
+
+      <a
+        href="https://buy.stripe.com/fZu4gseZabhFdD544dfnO09"
+        class="buy-button">
+
+        BUY NOW
+
+      </a>
+
+
+      <a
+        href="pants.html"
+        class="back-link">
+
+        ← BACK TO PANTS
+
+      </a>
+
+
+    </section>
+
+  </main>
+
+
+  <!-- IMAGE MODAL -->
+
+  <div
+    id="imageModal"
+    class="modal"
+    onclick="closeModal(event)">
+
+    <span
+      class="close-modal"
+      onclick="closeModal(event)">
+      ×
+    </span>
+
+    <img
+      id="modalImage"
+      src=""
+      alt="Product image">
+
+  </div>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      © 2026 First Class Supply. All Rights Reserved.
+    </p>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    function changeImage(image, element) {
+
+      document.getElementById("mainImage").src = image;
+
+      const thumbnails =
+        document.querySelectorAll(".thumbnail");
+
+      thumbnails.forEach(function(thumbnail) {
+        thumbnail.classList.remove("active");
+      });
+
+      element.classList.add("active");
+
+    }
+
+
+    function openModal() {
+
+      const mainImage =
+        document.getElementById("mainImage");
+
+      const modal =
+        document.getElementById("imageModal");
+
+      const modalImage =
+        document.getElementById("modalImage");
+
+      modalImage.src = mainImage.src;
+
+      modal.style.display = "flex";
+
+    }
+
+
+    function closeModal(event) {
+
+      if (
+        event.target.id === "imageModal" ||
+        event.target.classList.contains("close-modal")
+      ) {
+
+        document.getElementById("imageModal").style.display = "none";
+
+      }
+
+    }
+
+
+    document.addEventListener("keydown", function(event) {
+
+      if (event.key === "Escape") {
+
+        document.getElementById("imageModal").style.display = "none";
+
+      }
+
+    });
+
+  </script>
+
+
+</body>
+
+</html>
