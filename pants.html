@@ -8,6 +8,7 @@
   <title>Pants | First Class Supply</title>
 
   <style>
+
     * {
       margin: 0;
       padding: 0;
@@ -19,6 +20,8 @@
       background: #f7f7f7;
       color: #111;
     }
+
+    /* HEADER */
 
     header {
       background: #000;
@@ -56,9 +59,11 @@
       color: #000;
     }
 
+    /* HERO */
+
     .hero {
       text-align: center;
-      padding: 70px 20px 30px;
+      padding: 70px 20px 35px;
     }
 
     .hero h1 {
@@ -71,51 +76,123 @@
       font-size: 18px;
     }
 
-    .coming-soon-section {
-      max-width: 900px;
+    /* PRODUCT GRID */
+
+    .products {
+      max-width: 1200px;
       margin: auto;
-      padding: 40px 20px 100px;
-      text-align: center;
+      padding: 30px 20px 100px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
     }
 
-    .coming-soon-card {
+    .product-card {
       background: #fff;
       border: 1px solid #ddd;
       border-radius: 14px;
-      padding: 70px 30px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .coming-soon-card h2 {
-      font-size: 34px;
-      margin-bottom: 15px;
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
     }
 
-    .coming-soon-card p {
-      font-size: 18px;
+    /* CLICKABLE IMAGE */
+
+    .product-image-link {
+      display: block;
+      text-decoration: none;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 390px;
+      background: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.25s ease;
+    }
+
+    .product-image:hover img {
+      transform: scale(1.03);
+    }
+
+    /* PRODUCT INFORMATION */
+
+    .product-info {
+      padding: 22px;
+    }
+
+    .product-title-link {
+      color: #111;
+      text-decoration: none;
+    }
+
+    .product-title-link:hover {
+      color: #b88a00;
+    }
+
+    .product-info h2 {
+      font-size: 21px;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .price {
+      color: #b88a00;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .sizes {
       color: #666;
-      line-height: 1.7;
-      max-width: 600px;
-      margin: 0 auto 30px;
+      font-size: 15px;
+      margin-bottom: 18px;
     }
 
-    .shop-button {
-      display: inline-block;
+    .stock {
+      font-weight: bold;
+      margin-bottom: 18px;
+      color: #222;
+    }
+
+    /* VIEW PRODUCT BUTTON */
+
+    .view-button {
+      display: block;
+      width: 100%;
       background: #000;
       color: #d4af37;
       text-decoration: none;
-      padding: 15px 35px;
+      padding: 14px;
       border-radius: 6px;
+      text-align: center;
       font-weight: bold;
       border: 2px solid #000;
       transition: 0.3s;
     }
 
-    .shop-button:hover {
+    .view-button:hover {
       background: #d4af37;
       color: #000;
       border-color: #d4af37;
     }
+
+    /* FOOTER */
 
     footer {
       background: #000;
@@ -123,6 +200,18 @@
       text-align: center;
       padding: 25px;
     }
+
+    /* TABLET */
+
+    @media (max-width: 900px) {
+
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+    }
+
+    /* MOBILE */
 
     @media (max-width: 600px) {
 
@@ -155,80 +244,167 @@
         font-size: 16px;
       }
 
-      .coming-soon-section {
-        padding: 25px 20px 70px;
+      .products {
+        grid-template-columns: 1fr;
+        padding: 20px 20px 70px;
       }
 
-      .coming-soon-card {
-        padding: 50px 20px;
+      .product-image {
+        height: 420px;
       }
 
-      .coming-soon-card h2 {
-        font-size: 28px;
-      }
-
-      .coming-soon-card p {
-        font-size: 16px;
-      }
-
-      .shop-button {
-        width: 100%;
-      }
     }
+
   </style>
 
 </head>
 
 <body>
 
+
+  <!-- HEADER -->
+
   <header>
 
     <a href="index.html">
-      <img src="first.PNG" alt="First Class Supply" class="logo">
+
+      <img
+        src="first.PNG"
+        alt="First Class Supply"
+        class="logo">
+
     </a>
 
+
     <nav class="menu">
-      <a href="boxers.html">BOXERS</a>
-      <a href="pants.html">PANTS</a>
-      <a href="tshirts.html">T-SHIRTS</a>
-      <a href="combos.html">COMBOS</a>
+
+      <a href="boxers.html">
+        BOXERS
+      </a>
+
+      <a href="pants.html">
+        PANTS
+      </a>
+
+      <a href="tshirts.html">
+        T-SHIRTS
+      </a>
+
+      <a href="combos.html">
+        COMBOS
+      </a>
+
     </nav>
 
   </header>
 
 
+
+  <!-- PANTS HEADER -->
+
   <section class="hero">
 
     <h1>Pants</h1>
 
-    <p>Premium streetwear styles coming soon.</p>
+    <p>
+      Shop authentic pants and streetwear from First Class Supply.
+    </p>
 
   </section>
 
 
-  <section class="coming-soon-section">
 
-    <div class="coming-soon-card">
+  <!-- PRODUCT GRID -->
 
-      <h2>COMING SOON</h2>
+  <section class="products">
 
-      <p>
-        We're adding new pants and streetwear styles to First Class Supply.
-        Check back soon for new arrivals.
-      </p>
 
-      <a href="boxers.html" class="shop-button">
-        SHOP BOXERS
+    <!-- PANTS 1 -->
+
+    <div class="product-card">
+
+
+      <!-- CLICK IMAGE TO OPEN PRODUCT -->
+
+      <a
+        href="pants1.html"
+        class="product-image-link">
+
+        <div class="product-image">
+
+          <img
+            src="true-religion-cargo-black-front.png"
+            alt="True Religion Cargo Pants Jet Black">
+
+        </div>
+
       </a>
+
+
+
+      <!-- PRODUCT INFORMATION -->
+
+      <div class="product-info">
+
+
+        <!-- CLICK NAME TO OPEN PRODUCT -->
+
+        <a
+          href="pants1.html"
+          class="product-title-link">
+
+          <h2>
+            True Religion Cargo Pants - Jet Black
+          </h2>
+
+        </a>
+
+
+        <div class="price">
+          $74.99
+        </div>
+
+
+        <div class="sizes">
+          Size: 30 / L
+        </div>
+
+
+        <div class="stock">
+          ✓ In Stock
+        </div>
+
+
+        <!-- VIEW PRODUCT -->
+
+        <a
+          href="pants1.html"
+          class="view-button">
+
+          VIEW PRODUCT
+
+        </a>
+
+
+      </div>
 
     </div>
 
+
   </section>
 
 
+
+  <!-- FOOTER -->
+
   <footer>
-    <p>© 2026 First Class Supply. All Rights Reserved.</p>
+
+    <p>
+      © 2026 First Class Supply. All Rights Reserved.
+    </p>
+
   </footer>
+
 
 </body>
 
