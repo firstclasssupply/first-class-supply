@@ -8,6 +8,7 @@
   <title>Combos | First Class Supply</title>
 
   <style>
+
     * {
       margin: 0;
       padding: 0;
@@ -20,32 +21,34 @@
       color: #111;
     }
 
+    /* HEADER */
+
     header {
       background: #000;
-      padding: 20px;
+      padding: 12px 20px 16px;
       text-align: center;
     }
 
     .logo {
-      width: 230px;
-      max-width: 80%;
+      width: 175px;
+      max-width: 70%;
       height: auto;
       display: block;
-      margin: 0 auto 20px;
+      margin: 0 auto 12px;
     }
 
     .menu {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 15px;
+      gap: 12px;
     }
 
     .menu a {
       color: #d4af37;
       text-decoration: none;
       border: 2px solid #d4af37;
-      padding: 12px 25px;
+      padding: 10px 22px;
       border-radius: 6px;
       font-weight: bold;
       transition: 0.3s;
@@ -56,25 +59,29 @@
       color: #000;
     }
 
+    /* HERO */
+
     .hero {
       text-align: center;
-      padding: 70px 20px 30px;
+      padding: 40px 20px 20px;
     }
 
     .hero h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
+      font-size: 40px;
+      margin-bottom: 8px;
     }
 
     .hero p {
       color: #666;
-      font-size: 18px;
+      font-size: 17px;
     }
+
+    /* COMING SOON */
 
     .coming-soon-section {
       max-width: 900px;
       margin: auto;
-      padding: 40px 20px 100px;
+      padding: 20px 20px 80px;
       text-align: center;
     }
 
@@ -82,12 +89,12 @@
       background: #fff;
       border: 1px solid #ddd;
       border-radius: 14px;
-      padding: 70px 30px;
+      padding: 55px 30px;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
     }
 
     .coming-soon-card h2 {
-      font-size: 34px;
+      font-size: 32px;
       margin-bottom: 15px;
     }
 
@@ -95,7 +102,7 @@
       font-size: 18px;
       color: #666;
       line-height: 1.7;
-      max-width: 600px;
+      max-width: 620px;
       margin: 0 auto 30px;
     }
 
@@ -104,7 +111,7 @@
       background: #000;
       color: #d4af37;
       text-decoration: none;
-      padding: 15px 35px;
+      padding: 14px 32px;
       border-radius: 6px;
       font-weight: bold;
       border: 2px solid #000;
@@ -117,6 +124,8 @@
       border-color: #d4af37;
     }
 
+    /* FOOTER */
+
     footer {
       background: #000;
       color: #fff;
@@ -124,27 +133,30 @@
       padding: 25px;
     }
 
+    /* MOBILE */
+
     @media (max-width: 600px) {
 
       header {
-        padding: 18px 12px;
+        padding: 10px 12px 14px;
       }
 
       .logo {
-        width: 200px;
+        width: 150px;
+        margin-bottom: 10px;
       }
 
       .menu {
-        gap: 10px;
+        gap: 8px;
       }
 
       .menu a {
-        padding: 10px 15px;
-        font-size: 14px;
+        padding: 9px 13px;
+        font-size: 13px;
       }
 
       .hero {
-        padding: 50px 20px 25px;
+        padding: 30px 20px 15px;
       }
 
       .hero h1 {
@@ -156,15 +168,15 @@
       }
 
       .coming-soon-section {
-        padding: 25px 20px 70px;
+        padding: 15px 20px 60px;
       }
 
       .coming-soon-card {
-        padding: 50px 20px;
+        padding: 45px 20px;
       }
 
       .coming-soon-card h2 {
-        font-size: 28px;
+        font-size: 27px;
       }
 
       .coming-soon-card p {
@@ -174,51 +186,87 @@
       .shop-button {
         width: 100%;
       }
+
     }
+
   </style>
 
 </head>
 
 <body>
 
+
+  <!-- HEADER -->
+
   <header>
 
     <a href="index.html">
-      <img src="first.PNG" alt="First Class Supply" class="logo">
+      <img
+        src="first.PNG"
+        alt="First Class Supply"
+        class="logo">
     </a>
 
     <nav class="menu">
-      <a href="boxers.html">BOXERS</a>
-      <a href="pants.html">PANTS</a>
-      <a href="tshirts.html">T-SHIRTS</a>
-      <a href="combos.html">COMBOS</a>
+
+      <a href="boxers.html">
+        BOXERS
+      </a>
+
+      <a href="tshirts.html">
+        T-SHIRTS
+      </a>
+
+      <a href="pants.html">
+        PANTS
+      </a>
+
+      <a href="combos.html">
+        COMBOS
+      </a>
+
     </nav>
 
   </header>
 
 
+  <!-- HERO -->
+
   <section class="hero">
 
-    <h1>Combos</h1>
+    <h1>
+      Combos
+    </h1>
 
-    <p>Exclusive First Class Supply bundles.</p>
+    <p>
+      Bundle your favorites. Save more.
+    </p>
 
   </section>
 
+
+  <!-- COMING SOON -->
 
   <section class="coming-soon-section">
 
     <div class="coming-soon-card">
 
-      <h2>COMING SOON</h2>
+      <h2>
+        NEW COMBOS COMING SOON
+      </h2>
 
       <p>
-        We're putting together exclusive First Class Supply combos.
-        New bundles will be available soon.
+        We're creating special bundles with your favorite
+        First Class Supply products. Stay tuned for new combo
+        deals and exclusive savings.
       </p>
 
-      <a href="boxers.html" class="shop-button">
+      <a
+        href="boxers.html"
+        class="shop-button">
+
         SHOP BOXERS
+
       </a>
 
     </div>
@@ -226,9 +274,16 @@
   </section>
 
 
+  <!-- FOOTER -->
+
   <footer>
-    <p>© 2026 First Class Supply. All Rights Reserved.</p>
+
+    <p>
+      © 2026 First Class Supply. All Rights Reserved.
+    </p>
+
   </footer>
+
 
 </body>
 
