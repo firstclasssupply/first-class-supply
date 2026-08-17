@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>True Religion Logo Patch T-Shirt - White | First Class Supply</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      color: #111;
+    }
+
+    body.no-scroll {
+      overflow: hidden;
+    }
+
+    /* HEADER */
+
+    header {
+      background: #000;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .logo {
+      width: 230px;
+      max-width: 80%;
+      margin-bottom: 20px;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .menu a {
+      color: #d4af37;
+      text-decoration: none;
+      border: 2px solid #d4af37;
+      padding: 12px 25px;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .menu a:hover {
+      background: #d4af37;
+      color: #000;
+    }
+
+    /* PRODUCT PAGE */
+
+    .product-page {
+      max-width: 1200px;
+      margin: auto;
+      padding: 70px 25px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    /* GALLERY */
+
+    .product-gallery {
+      width: 100%;
+    }
+
+    .main-image {
+      width: 100%;
+      height: 560px;
+      background: #eee;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      cursor: zoom-in;
+      position: relative;
+    }
+
+    .main-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.15s ease;
+      transform-origin: center center;
+    }
+
+    /* DESKTOP HOVER ZOOM */
+
+    @media (hover: hover) and (pointer: fine) {
+      .main-image:hover img {
+        transform: scale(2);
+      }
+    }
+
+    .zoom-hint {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.75);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      pointer-events: none;
+    }
+
+    /* THUMBNAILS */
+
+    .thumbnails {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .thumbnails img {
+      width: 100%;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      background: #eee;
+      transition: 0.2s;
+    }
+
+    .thumbnails img:hover {
+      border-color: #d4af37;
+    }
+
+    .thumbnails img.active {
+      border-color: #d4af37;
+    }
+
+    /* PRODUCT INFO */
+
+    .product-info h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      font-size: 30px;
+      font-weight: bold;
+      color: #b88a00;
+      margin-bottom: 25px;
+    }
+
+    .description {
+      font-size: 18px;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+
+    .detail {
+      margin-bottom: 14px;
+      font-size: 17px;
+    }
+
+    .stock {
+      font-weight: bold;
+      margin: 25px 0 15px;
+    }
+
+    .shipping {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .buy-button {
+      display: inline-block;
+      background: #000;
+      color: #d4af37;
+      text-decoration: none;
+      padding: 16px 45px;
+      border-radius: 6px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    .buy-button:hover {
+      background: #d4af37;
+      color: #000;
+    }
+
+    .back {
+      margin-top: 30px;
+    }
+
+    .back a {
+      color: #555;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* FULL SCREEN IMAGE VIEWER */
+
+    .image-viewer {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.96);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      touch-action: none;
+    }
+
+    .image-viewer.open {
+      display: flex;
+    }
+
+    .viewer-image-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      touch-action: none;
+    }
+
+    #viewerImage {
+      max-width: 95%;
+      max-height: 92%;
+      object-fit: contain;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-user-drag: none;
+      transform: translate3d(0, 0, 0) scale(1);
+      transform-origin: center center;
+      will-change: transform;
+    }
+
+    .close-viewer {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      color: white;
+      background: rgba(0, 0, 0, 0.6);
+      border: none;
+      font-size: 36px;
+      cursor: pointer;
+      z-index: 10002;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    .viewer-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: rgba(0, 0, 0, 0.55);
+      color: white;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      font-size: 28px;
+      cursor: pointer;
+      z-index: 10001;
+    }
+
+    .viewer-arrow.left {
+      left: 20px;
+    }
+
+    .viewer-arrow.right {
+      right: 20px;
+    }
+
+    .viewer-counter {
+      position: absolute;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 14px;
+      z-index: 10001;
+    }
+
+    .viewer-help {
+      position: absolute;
+      top: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.8);
+      font-size: 13px;
+      z-index: 10001;
+      text-align: center;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #000;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      .product-page {
+        grid-template-columns: 1fr;
+        padding: 40px 20px;
+        gap: 35px;
+      }
+
+      .main-image {
+        height: 430px;
+      }
+
+      .product-info h1 {
+        font-size: 32px;
+      }
+
+      .buy-button {
+        width: 100%;
+        text-align: center;
+      }
+
+      .thumbnails {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .thumbnails img {
+        height: 85px;
+      }
+
+      .viewer-arrow {
+        display: none;
+      }
+
+      .viewer-help {
+        font-size: 12px;
+        width: 75%;
+      }
+
+      #viewerImage {
+        max-width: 100%;
+        max-height: 88%;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      .main-image {
+        height: 380px;
+      }
+
+      .thumbnails {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .thumbnails img {
+        height: 75px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <a href="index.html">
+    <img src="first.PNG" class="logo" alt="First Class Supply">
+  </a>
+
+  <nav class="menu">
+    <a href="boxers.html">BOXERS</a>
+    <a href="pants.html">PANTS</a>
+    <a href="tshirts.html">T-SHIRTS</a>
+    <a href="combos.html">COMBOS</a>
+  </nav>
+
+</header>
+
+
+<main class="product-page">
+
+  <!-- PRODUCT GALLERY -->
+
+  <div class="product-gallery">
+
+    <div class="main-image" id="mainImageContainer">
+
+      <img
+        id="mainProductImage"
+        src="true-religion-white-front.png"
+        alt="True Religion Logo Patch T-Shirt White">
+
+      <div class="zoom-hint">
+        Click to enlarge
+      </div>
+
+    </div>
+
+
+    <div class="thumbnails">
+
+      <img
+        src="true-religion-white-front.png"
+        alt="True Religion White T-Shirt Front"
+        class="active"
+        onclick="changeImage(this)">
+
+      <img
+        src="true-religion-white-back.png"
+        alt="True Religion White T-Shirt Back"
+        onclick="changeImage(this)">
+
+      <img
+        src="true-religion-white-patch-detail.png"
+        alt="True Religion Patch Detail"
+        onclick="changeImage(this)">
+
+      <img
+        src="true-religion-white-logo-detail.png"
+        alt="True Religion Logo Detail"
+        onclick="changeImage(this)">
+
+      <img
+        src="true-religion-white-est02-detail.png"
+        alt="True Religion EST 02 Detail"
+        onclick="changeImage(this)">
+
+      <img
+        src="true-religion-white-tag-front.png"
+        alt="True Religion Tag Front"
+        onclick="changeImage(this)">
+
+      <img
+        src="true-religion-white-tag-back.png"
+        alt="True Religion Tag Back"
+        onclick="changeImage(this)">
+
+    </div>
+
+  </div>
+
+
+  <!-- PRODUCT INFORMATION -->
+
+  <div class="product-info">
+
+    <h1>True Religion Logo Patch T-Shirt - White</h1>
+
+    <div class="price">
+      Price Coming Soon
+    </div>
+
+    <div class="description">
+      Authentic True Religion white T-shirt featuring bold logo graphics,
+      embroidered patch details and a statement back design.
+      Brand new with tags and available in limited quantities.
+    </div>
+
+    <div class="detail">
+      <strong>Available Sizes:</strong> M — Medium / L — Large
+    </div>
+
+    <div class="detail">
+      <strong>Color:</strong> White
+    </div>
+
+    <div class="detail">
+      <strong>Condition:</strong> Brand New With Tags
+    </div>
+
+    <div class="detail">
+      <strong>Authenticity:</strong> 100% Authentic
+    </div>
+
+    <div class="stock">
+      ✓ In Stock
+    </div>
+
+    <div class="shipping">
+      Standard U.S. Shipping: $7<br>
+      Free Local Pickup / Delivery — South Florida Only<br>
+      <strong>Sizes M & L available.</strong>
+    </div>
+
+    <!-- REPLACE # WITH YOUR STRIPE PAYMENT LINK -->
+
+    <a href="#" class="buy-button" onclick="return false;">
+      BUY NOW
+    </a>
+
+    <div class="back">
+      <a href="tshirts.html">← BACK TO T-SHIRTS</a>
+    </div>
+
+  </div>
+
+</main>
+
+
+<!-- FULL SCREEN IMAGE VIEWER -->
+
+<div class="image-viewer" id="imageViewer">
+
+  <button class="close-viewer" id="closeViewer" aria-label="Close">
+    ×
+  </button>
+
+  <div class="viewer-help">
+    Swipe left/right • Pinch to zoom • Swipe down to close
+  </div>
+
+  <button class="viewer-arrow left" id="previousImage" aria-label="Previous image">
+    ‹
+  </button>
+
+  <div class="viewer-image-container" id="viewerContainer">
+
+    <img
+      id="viewerImage"
+      src=""
+      alt="Product enlarged">
+
+  </div>
+
+  <button class="viewer-arrow right" id="nextImage" aria-label="Next image">
+    ›
+  </button>
+
+  <div class="viewer-counter" id="viewerCounter">
+    1 / 7
+  </div>
+
+</div>
+
+
+<footer>
+  <p>© 2026 First Class Supply. All Rights Reserved.</p>
+</footer>
+
+
+<script>
+
+  const productImages = [
+    "true-religion-white-front.png",
+    "true-religion-white-back.png",
+    "true-religion-white-patch-detail.png",
+    "true-religion-white-logo-detail.png",
+    "true-religion-white-est02-detail.png",
+    "true-religion-white-tag-front.png",
+    "true-religion-white-tag-back.png"
+  ];
+
+
+  const mainProductImage = document.getElementById("mainProductImage");
+  const mainImageContainer = document.getElementById("mainImageContainer");
+
+  const imageViewer = document.getElementById("imageViewer");
+  const viewerImage = document.getElementById("viewerImage");
+  const viewerContainer = document.getElementById("viewerContainer");
+
+  const closeViewer = document.getElementById("closeViewer");
+  const previousImage = document.getElementById("previousImage");
+  const nextImage = document.getElementById("nextImage");
+
+  const viewerCounter = document.getElementById("viewerCounter");
+
+  let currentIndex = 0;
+
+  let scale = 1;
+  let translateX = 0;
+  let translateY = 0;
+
+  let startX = 0;
+  let startY = 0;
+
+  let lastX = 0;
+  let lastY = 0;
+
+  let startDistance = 0;
+  let startScale = 1;
+
+  let isDragging = false;
+
+
+  /* CHANGE MAIN IMAGE */
+
+  function changeImage(element) {
+
+    mainProductImage.src = element.src;
+
+    currentIndex = productImages.findIndex(image =>
+      element.src.includes(image)
+    );
+
+    document.querySelectorAll(".thumbnails img").forEach(img => {
+      img.classList.remove("active");
+    });
+
+    element.classList.add("active");
+  }
+
+
+  /* DESKTOP CURSOR ZOOM */
+
+  mainImageContainer.addEventListener("mousemove", function(event) {
+
+    if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+
+      const rect = mainImageContainer.getBoundingClientRect();
+
+      const x = ((event.clientX - rect.left) / rect.width) * 100;
+      const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+      mainProductImage.style.transformOrigin = `${x}% ${y}%`;
+    }
+
+  });
+
+
+  mainImageContainer.addEventListener("mouseleave", function() {
+    mainProductImage.style.transformOrigin = "center center";
+  });
+
+
+  /* OPEN VIEWER */
+
+  mainImageContainer.addEventListener("click", function() {
+
+    currentIndex = productImages.findIndex(image =>
+      mainProductImage.src.includes(image)
+    );
+
+    if (currentIndex < 0) {
+      currentIndex = 0;
+    }
+
+    openViewer();
+
+  });
+
+
+  function openViewer() {
+
+    resetViewerTransform();
+
+    viewerImage.src = productImages[currentIndex];
+
+    updateCounter();
+
+    imageViewer.classList.add("open");
+
+    document.body.classList.add("no-scroll");
+  }
+
+
+  /* CLOSE VIEWER */
+
+  function closeImageViewer() {
+
+    imageViewer.classList.remove("open");
+
+    document.body.classList.remove("no-scroll");
+
+    resetViewerTransform();
+  }
+
+
+  closeViewer.addEventListener("click", function(event) {
+
+    event.stopPropagation();
+
+    closeImageViewer();
+
+  });
+
+
+  /* NEXT / PREVIOUS */
+
+  function showNextImage() {
+
+    currentIndex++;
+
+    if (currentIndex >= productImages.length) {
+      currentIndex = 0;
+    }
+
+    resetViewerTransform();
+
+    viewerImage.src = productImages[currentIndex];
+
+    updateCounter();
+  }
+
+
+  function showPreviousImage() {
+
+    currentIndex--;
+
+    if (currentIndex < 0) {
+      currentIndex = productImages.length - 1;
+    }
+
+    resetViewerTransform();
+
+    viewerImage.src = productImages[currentIndex];
+
+    updateCounter();
+  }
+
+
+  nextImage.addEventListener("click", function(event) {
+
+    event.stopPropagation();
+
+    showNextImage();
+
+  });
+
+
+  previousImage.addEventListener("click", function(event) {
+
+    event.stopPropagation();
+
+    showPreviousImage();
+
+  });
+
+
+  function updateCounter() {
+
+    viewerCounter.textContent =
+      `${currentIndex + 1} / ${productImages.length}`;
+
+  }
+
+
+  /* RESET ZOOM */
+
+  function resetViewerTransform() {
+
+    scale = 1;
+    translateX = 0;
+    translateY = 0;
+
+    viewerImage.style.transform =
+      "translate3d(0px, 0px, 0px) scale(1)";
+  }
+
+
+  function updateViewerTransform() {
+
+    viewerImage.style.transform =
+      `translate3d(${translateX}px, ${translateY}px, 0) scale(${scale})`;
+
+  }
+
+
+  /* PINCH ZOOM */
+
+  function getDistance(touch1, touch2) {
+
+    const x = touch2.clientX - touch1.clientX;
+    const y = touch2.clientY - touch1.clientY;
+
+    return Math.sqrt(x * x + y * y);
+  }
+
+
+  viewerContainer.addEventListener("touchstart", function(event) {
+
+    if (event.touches.length === 2) {
+
+      startDistance = getDistance(
+        event.touches[0],
+        event.touches[1]
+      );
+
+      startScale = scale;
+
+      return;
+    }
+
+
+    if (event.touches.length === 1) {
+
+      startX = event.touches[0].clientX;
+      startY = event.touches[0].clientY;
+
+      lastX = startX;
+      lastY = startY;
+
+      isDragging = true;
+    }
+
+  }, { passive: false });
+
+
+  viewerContainer.addEventListener("touchmove", function(event) {
+
+    event.preventDefault();
+
+
+    /* PINCH */
+
+    if (event.touches.length === 2) {
+
+      const currentDistance = getDistance(
+        event.touches[0],
+        event.touches[1]
+      );
+
+      let newScale =
+        startScale * (currentDistance / startDistance);
+
+      newScale = Math.max(1, Math.min(newScale, 4));
+
+      scale = newScale;
+
+      updateViewerTransform();
+
+      return;
+    }
+
+
+    /* DRAG / SWIPE */
+
+    if (event.touches.length === 1 && isDragging) {
+
+      const currentX = event.touches[0].clientX;
+      const currentY = event.touches[0].clientY;
+
+      const moveX = currentX - lastX;
+      const moveY = currentY - lastY;
+
+
+      if (scale > 1) {
+
+        translateX += moveX;
+        translateY += moveY;
+
+        updateViewerTransform();
+
+      } else {
+
+        translateX = currentX - startX;
+        translateY = currentY - startY;
+
+        viewerImage.style.transform =
+          `translate3d(${translateX}px, ${translateY}px, 0) scale(1)`;
+
+      }
+
+      lastX = currentX;
+      lastY = currentY;
+    }
+
+  }, { passive: false });
+
+
+  viewerContainer.addEventListener("touchend", function(event) {
+
+    if (event.touches.length > 0) {
+      return;
+    }
+
+    if (!isDragging) {
+      return;
+    }
+
+    isDragging = false;
+
+
+    /* IF ZOOMED, KEEP IMAGE POSITION */
+
+    if (scale > 1) {
+      return;
+    }
+
+
+    const horizontalDistance = translateX;
+    const verticalDistance = translateY;
+
+
+    /* SWIPE DOWN TO CLOSE */
+
+    if (
+      verticalDistance > 100 &&
+      Math.abs(verticalDistance) > Math.abs(horizontalDistance)
+    ) {
+
+      closeImageViewer();
+
+      return;
+    }
+
+
+    /* SWIPE LEFT */
+
+    if (
+      horizontalDistance < -70 &&
+      Math.abs(horizontalDistance) > Math.abs(verticalDistance)
+    ) {
+
+      showNextImage();
+
+      return;
+    }
+
+
+    /* SWIPE RIGHT */
+
+    if (
+      horizontalDistance > 70 &&
+      Math.abs(horizontalDistance) > Math.abs(verticalDistance)
+    ) {
+
+      showPreviousImage();
+
+      return;
+    }
+
+
+    resetViewerTransform();
+
+  });
+
+
+  /* DOUBLE CLICK / DOUBLE TAP RESET */
+
+  viewerImage.addEventListener("dblclick", function(event) {
+
+    event.preventDefault();
+
+    if (scale === 1) {
+
+      scale = 2;
+
+    } else {
+
+      scale = 1;
+      translateX = 0;
+      translateY = 0;
+
+    }
+
+    updateViewerTransform();
+
+  });
+
+
+  /* KEYBOARD CONTROLS */
+
+  document.addEventListener("keydown", function(event) {
+
+    if (!imageViewer.classList.contains("open")) {
+      return;
+    }
+
+
+    if (event.key === "Escape") {
+
+      closeImageViewer();
+
+    }
+
+
+    if (event.key === "ArrowRight") {
+
+      showNextImage();
+
+    }
+
+
+    if (event.key === "ArrowLeft") {
+
+      showPreviousImage();
+
+    }
+
+  });
+
+
+  /* CLICK BACKGROUND TO CLOSE */
+
+  imageViewer.addEventListener("click", function(event) {
+
+    if (
+      event.target === imageViewer ||
+      event.target === viewerContainer
+    ) {
+
+      closeImageViewer();
+
+    }
+
+  });
+
+</script>
+
+</body>
+</html>
