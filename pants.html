@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>True Religion Ricky Relaxed Straight Jeans - Blue | First Class Supply</title>
+  <title>Pants | First Class Supply</title>
 
   <style>
 
@@ -19,10 +19,6 @@
       font-family: Arial, sans-serif;
       background: #f7f7f7;
       color: #111;
-    }
-
-    body.no-scroll {
-      overflow: hidden;
     }
 
     /* HEADER */
@@ -63,292 +59,162 @@
       color: #000;
     }
 
-    /* PRODUCT PAGE */
+    /* HERO */
 
-    .product-page {
+    .hero {
+      text-align: center;
+      padding: 70px 20px 35px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #666;
+      font-size: 18px;
+    }
+
+    /* PRODUCT GRID */
+
+    .products {
       max-width: 1200px;
       margin: auto;
-      padding: 70px 25px;
+      padding: 30px 20px 100px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
     }
 
-    /* GALLERY */
-
-    .product-gallery {
-      width: 100%;
-    }
-
-    .main-image {
-      width: 100%;
-      height: 560px;
-      background: #eee;
-      border-radius: 12px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      cursor: zoom-in;
-      position: relative;
-    }
-
-    .main-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
-      transition: transform 0.15s ease;
-      transform-origin: center center;
-    }
-
-    /* DESKTOP HOVER ZOOM */
-
-    @media (hover: hover) and (pointer: fine) {
-
-      .main-image:hover img {
-        transform: scale(2);
-      }
-
-    }
-
-    .zoom-hint {
-      position: absolute;
-      bottom: 12px;
-      right: 12px;
-      background: rgba(0, 0, 0, 0.75);
-      color: white;
-      padding: 8px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      pointer-events: none;
-    }
-
-    /* THUMBNAILS */
-
-    .thumbnails {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 10px;
-      margin-top: 12px;
-    }
-
-    .thumbnail {
-      width: 100%;
-      aspect-ratio: 1 / 1;
+    .product-card {
       background: #fff;
-      border: 2px solid transparent;
-      border-radius: 8px;
+      border: 1px solid #ddd;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
+    }
+
+    /* CLICKABLE IMAGE */
+
+    .product-image-link {
+      display: block;
+      text-decoration: none;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 390px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
       cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: 0.2s;
     }
 
-    .thumbnail img {
+    .product-image img {
       width: 100%;
       height: 100%;
       object-fit: contain;
-      object-position: center;
-      display: block;
+      padding: 10px;
+      transition: transform 0.25s ease;
     }
 
-    .thumbnail:hover {
-      border-color: #d4af37;
-      transform: translateY(-2px);
+    .product-image:hover img {
+      transform: scale(1.03);
     }
 
-    .thumbnail.active {
-      border-color: #d4af37;
+    /* PRODUCT INFORMATION */
+
+    .product-info {
+      padding: 22px;
     }
 
-    /* PRODUCT INFO */
+    .product-title-link {
+      color: #111;
+      text-decoration: none;
+    }
 
-    .product-info h1 {
-      font-size: 42px;
-      margin-bottom: 15px;
-      line-height: 1.15;
+    .product-title-link:hover {
+      color: #b88a00;
+    }
+
+    .product-info h2 {
+      font-size: 21px;
+      margin-bottom: 10px;
+      line-height: 1.3;
     }
 
     .price {
-      font-size: 30px;
-      font-weight: bold;
       color: #b88a00;
-      margin-bottom: 25px;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 12px;
     }
 
-    .description {
-      font-size: 18px;
-      color: #555;
-      line-height: 1.7;
-      margin-bottom: 25px;
-    }
-
-    .detail {
-      margin-bottom: 14px;
-      font-size: 17px;
+    .sizes {
+      color: #666;
+      font-size: 15px;
+      margin-bottom: 18px;
     }
 
     .stock {
       font-weight: bold;
-      margin: 25px 0 15px;
+      margin-bottom: 18px;
+      color: #222;
     }
 
-    .shipping {
-      color: #666;
-      line-height: 1.6;
-      margin-bottom: 25px;
-    }
+    /* VIEW PRODUCT BUTTON */
 
-    /* BUY BUTTON */
-
-    .buy-button {
-      display: inline-block;
+    .view-button {
+      display: block;
+      width: 100%;
       background: #000;
       color: #d4af37;
       text-decoration: none;
-      padding: 16px 45px;
+      padding: 14px;
       border-radius: 6px;
-      font-size: 18px;
+      text-align: center;
       font-weight: bold;
       border: 2px solid #000;
-      cursor: pointer;
       transition: 0.3s;
     }
 
-    .buy-button:hover {
+    .view-button:hover {
       background: #d4af37;
       color: #000;
       border-color: #d4af37;
-    }
-
-    .back {
-      margin-top: 30px;
-    }
-
-    .back a {
-      color: #555;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    /* FULL SCREEN VIEWER */
-
-    .image-viewer {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.96);
-      z-index: 9999;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      touch-action: none;
-    }
-
-    .image-viewer.open {
-      display: flex;
-    }
-
-    .viewer-image-container {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      touch-action: none;
-    }
-
-    #viewerImage {
-      max-width: 95%;
-      max-height: 92%;
-      object-fit: contain;
-      user-select: none;
-      -webkit-user-select: none;
-      -webkit-user-drag: none;
-      transform: translate3d(0, 0, 0) scale(1);
-      transform-origin: center center;
-      will-change: transform;
-    }
-
-    .close-viewer {
-      position: absolute;
-      top: 20px;
-      right: 25px;
-      color: white;
-      background: rgba(0, 0, 0, 0.6);
-      border: none;
-      font-size: 36px;
-      cursor: pointer;
-      z-index: 10002;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-    }
-
-    .viewer-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      border: none;
-      background: rgba(0, 0, 0, 0.55);
-      color: white;
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      font-size: 28px;
-      cursor: pointer;
-      z-index: 10001;
-    }
-
-    .viewer-arrow.left {
-      left: 20px;
-    }
-
-    .viewer-arrow.right {
-      right: 20px;
-    }
-
-    .viewer-counter {
-      position: absolute;
-      bottom: 25px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: white;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 8px 15px;
-      border-radius: 20px;
-      font-size: 14px;
-      z-index: 10001;
-    }
-
-    .viewer-help {
-      position: absolute;
-      top: 25px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: rgba(255,255,255,0.8);
-      font-size: 13px;
-      z-index: 10001;
-      text-align: center;
     }
 
     /* FOOTER */
 
     footer {
       background: #000;
-      color: white;
+      color: #fff;
       text-align: center;
       padding: 25px;
     }
 
+    /* TABLET */
+
+    @media (max-width: 900px) {
+
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+    }
+
     /* MOBILE */
 
-    @media (max-width: 800px) {
+    @media (max-width: 600px) {
 
       header {
         padding: 18px 12px;
@@ -367,54 +233,25 @@
         font-size: 14px;
       }
 
-      .product-page {
-        grid-template-columns: 1fr;
-        padding: 40px 20px;
-        gap: 35px;
+      .hero {
+        padding: 50px 20px 25px;
       }
 
-      .main-image {
-        height: 430px;
-      }
-
-      .product-info h1 {
+      .hero h1 {
         font-size: 32px;
       }
 
-      .buy-button {
-        width: 100%;
-        text-align: center;
+      .hero p {
+        font-size: 16px;
       }
 
-      .thumbnails {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 8px;
+      .products {
+        grid-template-columns: 1fr;
+        padding: 20px 20px 70px;
       }
 
-      .viewer-arrow {
-        display: none;
-      }
-
-      .viewer-help {
-        font-size: 12px;
-        width: 75%;
-      }
-
-      #viewerImage {
-        max-width: 100%;
-        max-height: 88%;
-      }
-
-    }
-
-    @media (max-width: 500px) {
-
-      .main-image {
-        height: 400px;
-      }
-
-      .thumbnails {
-        grid-template-columns: repeat(3, 1fr);
+      .product-image {
+        height: 420px;
       }
 
     }
@@ -423,1041 +260,204 @@
 
 </head>
 
-
 <body>
 
 
-<header>
+  <!-- HEADER -->
 
-  <a href="index.html">
+  <header>
 
-    <img
-      src="first.PNG"
-      class="logo"
-      alt="First Class Supply">
-
-  </a>
-
-
-  <nav class="menu">
-
-    <a href="boxers.html">BOXERS</a>
-
-    <a href="pants.html">PANTS</a>
-
-    <a href="tshirts.html">T-SHIRTS</a>
-
-    <a href="combos.html">COMBOS</a>
-
-  </nav>
-
-</header>
-
-
-
-<main class="product-page">
-
-
-  <!-- PRODUCT GALLERY -->
-
-  <div class="product-gallery">
-
-
-    <!-- MAIN IMAGE -->
-
-    <div
-      class="main-image"
-      id="mainImageContainer">
+    <a href="index.html">
 
       <img
-        id="mainProductImage"
-        src="true-religion-ricky-blue-front.png"
-        alt="True Religion Ricky Relaxed Straight Jeans Blue">
-
-      <div class="zoom-hint">
-        Click to enlarge
-      </div>
-
-    </div>
-
-
-
-    <!-- THUMBNAILS -->
-
-    <div class="thumbnails">
-
-
-      <div
-        class="thumbnail active"
-        onclick="changeImage(this)">
-
-        <img
-          src="true-religion-ricky-blue-front.png"
-          alt="True Religion Ricky Jeans Front">
-
-      </div>
-
-
-      <div
-        class="thumbnail"
-        onclick="changeImage(this)">
-
-        <img
-          src="true-religion-ricky-blue-back.png"
-          alt="True Religion Ricky Jeans Back">
-
-      </div>
-
-
-      <div
-        class="thumbnail"
-        onclick="changeImage(this)">
-
-        <img
-          src="true-religion-ricky-blue-size-tag.png"
-          alt="True Religion Ricky Size Tag">
-
-      </div>
-
-
-      <div
-        class="thumbnail"
-        onclick="changeImage(this)">
-
-        <img
-          src="true-religion-ricky-blue-pocket-detail.png"
-          alt="True Religion Ricky Pocket Detail">
-
-      </div>
-
-
-      <div
-        class="thumbnail"
-        onclick="changeImage(this)">
-
-        <img
-          src="true-religion-ricky-blue-back-detail.png"
-          alt="True Religion Ricky Back Detail">
-
-      </div>
-
-
-      <div
-        class="thumbnail"
-        onclick="changeImage(this)">
-
-        <img
-          src="true-religion-ricky-blue-tag-detail.png"
-          alt="True Religion Ricky Tag Detail">
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-
-
-  <!-- PRODUCT INFORMATION -->
-
-  <div class="product-info">
-
-
-    <h1>
-      True Religion Ricky Relaxed Straight Jeans - Blue
-    </h1>
-
-
-    <div class="price">
-      $89.99
-    </div>
-
-
-    <div class="description">
-
-      Authentic True Religion Ricky jeans featuring a classic blue denim wash,
-      signature horseshoe stitching and iconic True Religion details.
-      Relaxed straight fit. Brand new with tags.
-
-    </div>
-
-
-    <div class="detail">
-
-      <strong>Available Size:</strong>
-      W30 / L34
-
-    </div>
-
-
-    <div class="detail">
-
-      <strong>Fit:</strong>
-      Ricky Relaxed Straight
-
-    </div>
-
-
-    <div class="detail">
-
-      <strong>Color:</strong>
-      Blue Denim
-
-    </div>
-
-
-    <div class="detail">
-
-      <strong>Condition:</strong>
-      Brand New With Tags
-
-    </div>
-
-
-    <div class="detail">
-
-      <strong>Authenticity:</strong>
-      100% Authentic
-
-    </div>
-
-
-    <div class="stock">
-
-      ✓ In Stock
-
-    </div>
-
-
-    <div class="shipping">
-
-      Standard U.S. Shipping: $7
-
-      <br>
-
-      Free Local Pickup / Delivery — South Florida Only
-
-      <br>
-
-      <strong>
-        Size W30 / L34 available.
-      </strong>
-
-    </div>
-
-
-
-    <!-- STRIPE BUY BUTTON -->
-
-    <a
-      href="https://buy.stripe.com/fZu4gseZabhFdD544dfnO09"
-      class="buy-button"
-      target="_blank"
-      rel="noopener noreferrer">
-
-      BUY NOW
+        src="first.PNG"
+        alt="First Class Supply"
+        class="logo">
 
     </a>
 
 
-    <div class="back">
+    <nav class="menu">
+
+      <a href="boxers.html">
+        BOXERS
+      </a>
 
       <a href="pants.html">
-        ← BACK TO PANTS
+        PANTS
       </a>
+
+      <a href="tshirts.html">
+        T-SHIRTS
+      </a>
+
+      <a href="combos.html">
+        COMBOS
+      </a>
+
+    </nav>
+
+  </header>
+
+
+
+  <!-- PANTS HEADER -->
+
+  <section class="hero">
+
+    <h1>Pants</h1>
+
+    <p>
+      Shop authentic pants and streetwear from First Class Supply.
+    </p>
+
+  </section>
+
+
+
+  <!-- PRODUCT GRID -->
+
+  <section class="products">
+
+
+    <!-- ===================================== -->
+    <!-- PANTS 1 -->
+    <!-- ===================================== -->
+
+    <div class="product-card">
+
+      <a
+        href="pants1.html"
+        class="product-image-link">
+
+        <div class="product-image">
+
+          <img
+            src="true-religion-cargo-black-front.png"
+            alt="True Religion Cargo Pants Jet Black">
+
+        </div>
+
+      </a>
+
+
+      <div class="product-info">
+
+        <a
+          href="pants1.html"
+          class="product-title-link">
+
+          <h2>
+            True Religion Cargo Pants - Jet Black
+          </h2>
+
+        </a>
+
+
+        <div class="price">
+          $74.99
+        </div>
+
+
+        <div class="sizes">
+          Size: 30 / L
+        </div>
+
+
+        <div class="stock">
+          ✓ In Stock
+        </div>
+
+
+        <a
+          href="pants1.html"
+          class="view-button">
+
+          VIEW PRODUCT
+
+        </a>
+
+      </div>
 
     </div>
 
 
-  </div>
 
+    <!-- ===================================== -->
+    <!-- PANTS 2 -->
+    <!-- ===================================== -->
 
-</main>
+    <div class="product-card">
 
+      <a
+        href="pants2.html"
+        class="product-image-link">
 
+        <div class="product-image">
 
-<!-- FULL SCREEN IMAGE VIEWER -->
+          <img
+            src="true-religion-ricky-blue-front.png"
+            alt="True Religion Ricky Relaxed Straight Jeans">
 
-<div
-  class="image-viewer"
-  id="imageViewer">
+        </div>
 
+      </a>
 
-  <button
-    class="close-viewer"
-    id="closeViewer"
-    aria-label="Close">
 
-    ×
+      <div class="product-info">
 
-  </button>
+        <a
+          href="pants2.html"
+          class="product-title-link">
 
+          <h2>
+            True Religion Ricky Relaxed Straight Jeans
+          </h2>
 
-  <div class="viewer-help">
+        </a>
 
-    Swipe left/right • Pinch to zoom • Swipe down to close
 
-  </div>
+        <div class="price">
+          $89.99
+        </div>
 
 
-  <button
-    class="viewer-arrow left"
-    id="previousImage"
-    aria-label="Previous image">
+        <div class="sizes">
+          Size: W30 / L34
+        </div>
 
-    ‹
 
-  </button>
+        <div class="stock">
+          ✓ In Stock
+        </div>
 
 
-  <div
-    class="viewer-image-container"
-    id="viewerContainer">
+        <a
+          href="pants2.html"
+          class="view-button">
 
-    <img
-      id="viewerImage"
-      src=""
-      alt="Product enlarged">
+          VIEW PRODUCT
 
-  </div>
+        </a>
 
+      </div>
 
-  <button
-    class="viewer-arrow right"
-    id="nextImage"
-    aria-label="Next image">
+    </div>
 
-    ›
 
-  </button>
+  </section>
 
 
-  <div
-    class="viewer-counter"
-    id="viewerCounter">
 
-    1 / 6
+  <!-- FOOTER -->
 
-  </div>
+  <footer>
 
+    <p>
+      © 2026 First Class Supply. All Rights Reserved.
+    </p>
 
-</div>
-
-
-
-<footer>
-
-  <p>
-    © 2026 First Class Supply. All Rights Reserved.
-  </p>
-
-</footer>
-
-
-
-<script>
-
-  const productImages = [
-
-    "true-religion-ricky-blue-front.png",
-
-    "true-religion-ricky-blue-back.png",
-
-    "true-religion-ricky-blue-size-tag.png",
-
-    "true-religion-ricky-blue-pocket-detail.png",
-
-    "true-religion-ricky-blue-back-detail.png",
-
-    "true-religion-ricky-blue-tag-detail.png"
-
-  ];
-
-
-  const mainProductImage =
-    document.getElementById("mainProductImage");
-
-  const mainImageContainer =
-    document.getElementById("mainImageContainer");
-
-  const imageViewer =
-    document.getElementById("imageViewer");
-
-  const viewerImage =
-    document.getElementById("viewerImage");
-
-  const viewerContainer =
-    document.getElementById("viewerContainer");
-
-  const closeViewer =
-    document.getElementById("closeViewer");
-
-  const previousImage =
-    document.getElementById("previousImage");
-
-  const nextImage =
-    document.getElementById("nextImage");
-
-  const viewerCounter =
-    document.getElementById("viewerCounter");
-
-
-  let currentIndex = 0;
-
-  let scale = 1;
-
-  let translateX = 0;
-
-  let translateY = 0;
-
-  let startX = 0;
-
-  let startY = 0;
-
-  let lastX = 0;
-
-  let lastY = 0;
-
-  let startDistance = 0;
-
-  let startScale = 1;
-
-  let isDragging = false;
-
-
-
-  /* CHANGE MAIN IMAGE */
-
-  function changeImage(element) {
-
-    const selectedImage =
-      element.querySelector("img");
-
-    mainProductImage.src =
-      selectedImage.src;
-
-
-    currentIndex =
-      productImages.findIndex(image =>
-        selectedImage.src.includes(image)
-      );
-
-
-    document
-      .querySelectorAll(".thumbnail")
-      .forEach(item => {
-
-        item.classList.remove("active");
-
-      });
-
-
-    element.classList.add("active");
-
-  }
-
-
-
-  /* DESKTOP HOVER ZOOM */
-
-  mainImageContainer.addEventListener(
-    "mousemove",
-    function(event) {
-
-      if (
-        window.matchMedia(
-          "(hover: hover) and (pointer: fine)"
-        ).matches
-      ) {
-
-        const rect =
-          mainImageContainer.getBoundingClientRect();
-
-
-        const x =
-          ((event.clientX - rect.left) /
-          rect.width) * 100;
-
-
-        const y =
-          ((event.clientY - rect.top) /
-          rect.height) * 100;
-
-
-        mainProductImage.style.transformOrigin =
-          `${x}% ${y}%`;
-
-      }
-
-    }
-  );
-
-
-  mainImageContainer.addEventListener(
-    "mouseleave",
-    function() {
-
-      mainProductImage.style.transformOrigin =
-        "center center";
-
-    }
-  );
-
-
-
-  /* OPEN VIEWER */
-
-  mainImageContainer.addEventListener(
-    "click",
-    function() {
-
-      currentIndex =
-        productImages.findIndex(image =>
-          mainProductImage.src.includes(image)
-        );
-
-
-      if (currentIndex < 0) {
-
-        currentIndex = 0;
-
-      }
-
-
-      openViewer();
-
-    }
-  );
-
-
-
-  function openViewer() {
-
-    resetViewerTransform();
-
-
-    viewerImage.src =
-      productImages[currentIndex];
-
-
-    updateCounter();
-
-
-    imageViewer.classList.add("open");
-
-
-    document.body.classList.add("no-scroll");
-
-  }
-
-
-
-  /* CLOSE VIEWER */
-
-  function closeImageViewer() {
-
-    imageViewer.classList.remove("open");
-
-
-    document.body.classList.remove("no-scroll");
-
-
-    resetViewerTransform();
-
-  }
-
-
-
-  closeViewer.addEventListener(
-    "click",
-    function(event) {
-
-      event.stopPropagation();
-
-      closeImageViewer();
-
-    }
-  );
-
-
-
-  /* NEXT IMAGE */
-
-  function showNextImage() {
-
-    currentIndex++;
-
-
-    if (
-      currentIndex >=
-      productImages.length
-    ) {
-
-      currentIndex = 0;
-
-    }
-
-
-    resetViewerTransform();
-
-
-    viewerImage.src =
-      productImages[currentIndex];
-
-
-    updateCounter();
-
-  }
-
-
-
-  /* PREVIOUS IMAGE */
-
-  function showPreviousImage() {
-
-    currentIndex--;
-
-
-    if (currentIndex < 0) {
-
-      currentIndex =
-        productImages.length - 1;
-
-    }
-
-
-    resetViewerTransform();
-
-
-    viewerImage.src =
-      productImages[currentIndex];
-
-
-    updateCounter();
-
-  }
-
-
-
-  nextImage.addEventListener(
-    "click",
-    function(event) {
-
-      event.stopPropagation();
-
-      showNextImage();
-
-    }
-  );
-
-
-  previousImage.addEventListener(
-    "click",
-    function(event) {
-
-      event.stopPropagation();
-
-      showPreviousImage();
-
-    }
-  );
-
-
-
-  /* COUNTER */
-
-  function updateCounter() {
-
-    viewerCounter.textContent =
-      `${currentIndex + 1} / ${productImages.length}`;
-
-  }
-
-
-
-  /* RESET ZOOM */
-
-  function resetViewerTransform() {
-
-    scale = 1;
-
-    translateX = 0;
-
-    translateY = 0;
-
-
-    viewerImage.style.transform =
-      "translate3d(0px, 0px, 0px) scale(1)";
-
-  }
-
-
-
-  function updateViewerTransform() {
-
-    viewerImage.style.transform =
-      `translate3d(${translateX}px, ${translateY}px, 0) scale(${scale})`;
-
-  }
-
-
-
-  function getDistance(touch1, touch2) {
-
-    const x =
-      touch2.clientX -
-      touch1.clientX;
-
-
-    const y =
-      touch2.clientY -
-      touch1.clientY;
-
-
-    return Math.sqrt(
-      x * x + y * y
-    );
-
-  }
-
-
-
-  /* MOBILE TOUCH */
-
-  viewerContainer.addEventListener(
-    "touchstart",
-    function(event) {
-
-      if (event.touches.length === 2) {
-
-        startDistance =
-          getDistance(
-            event.touches[0],
-            event.touches[1]
-          );
-
-
-        startScale = scale;
-
-
-        return;
-
-      }
-
-
-      if (event.touches.length === 1) {
-
-        startX =
-          event.touches[0].clientX;
-
-
-        startY =
-          event.touches[0].clientY;
-
-
-        lastX = startX;
-
-        lastY = startY;
-
-
-        isDragging = true;
-
-      }
-
-    },
-
-    { passive: false }
-
-  );
-
-
-
-  viewerContainer.addEventListener(
-    "touchmove",
-    function(event) {
-
-      event.preventDefault();
-
-
-      if (event.touches.length === 2) {
-
-        const currentDistance =
-          getDistance(
-            event.touches[0],
-            event.touches[1]
-          );
-
-
-        let newScale =
-          startScale *
-          (currentDistance /
-          startDistance);
-
-
-        newScale =
-          Math.max(
-            1,
-            Math.min(newScale, 4)
-          );
-
-
-        scale = newScale;
-
-
-        updateViewerTransform();
-
-
-        return;
-
-      }
-
-
-      if (
-        event.touches.length === 1 &&
-        isDragging
-      ) {
-
-        const currentX =
-          event.touches[0].clientX;
-
-
-        const currentY =
-          event.touches[0].clientY;
-
-
-        const moveX =
-          currentX - lastX;
-
-
-        const moveY =
-          currentY - lastY;
-
-
-        if (scale > 1) {
-
-          translateX += moveX;
-
-          translateY += moveY;
-
-
-          updateViewerTransform();
-
-        }
-
-        else {
-
-          translateX =
-            currentX - startX;
-
-
-          translateY =
-            currentY - startY;
-
-
-          viewerImage.style.transform =
-            `translate3d(${translateX}px, ${translateY}px, 0) scale(1)`;
-
-        }
-
-
-        lastX = currentX;
-
-        lastY = currentY;
-
-      }
-
-    },
-
-    { passive: false }
-
-  );
-
-
-
-  viewerContainer.addEventListener(
-    "touchend",
-    function(event) {
-
-      if (event.touches.length > 0) {
-
-        return;
-
-      }
-
-
-      if (!isDragging) {
-
-        return;
-
-      }
-
-
-      isDragging = false;
-
-
-      if (scale > 1) {
-
-        return;
-
-      }
-
-
-      const horizontalDistance =
-        translateX;
-
-
-      const verticalDistance =
-        translateY;
-
-
-
-      /* SWIPE DOWN */
-
-      if (
-        verticalDistance > 100 &&
-        Math.abs(verticalDistance) >
-        Math.abs(horizontalDistance)
-      ) {
-
-        closeImageViewer();
-
-        return;
-
-      }
-
-
-
-      /* SWIPE LEFT */
-
-      if (
-        horizontalDistance < -70 &&
-        Math.abs(horizontalDistance) >
-        Math.abs(verticalDistance)
-      ) {
-
-        showNextImage();
-
-        return;
-
-      }
-
-
-
-      /* SWIPE RIGHT */
-
-      if (
-        horizontalDistance > 70 &&
-        Math.abs(horizontalDistance) >
-        Math.abs(verticalDistance)
-      ) {
-
-        showPreviousImage();
-
-        return;
-
-      }
-
-
-      resetViewerTransform();
-
-    }
-  );
-
-
-
-  /* DOUBLE CLICK ZOOM */
-
-  viewerImage.addEventListener(
-    "dblclick",
-    function(event) {
-
-      event.preventDefault();
-
-
-      if (scale === 1) {
-
-        scale = 2;
-
-      }
-
-      else {
-
-        scale = 1;
-
-        translateX = 0;
-
-        translateY = 0;
-
-      }
-
-
-      updateViewerTransform();
-
-    }
-  );
-
-
-
-  /* KEYBOARD */
-
-  document.addEventListener(
-    "keydown",
-    function(event) {
-
-      if (
-        !imageViewer.classList.contains("open")
-      ) {
-
-        return;
-
-      }
-
-
-      if (event.key === "Escape") {
-
-        closeImageViewer();
-
-      }
-
-
-      if (event.key === "ArrowRight") {
-
-        showNextImage();
-
-      }
-
-
-      if (event.key === "ArrowLeft") {
-
-        showPreviousImage();
-
-      }
-
-    }
-  );
-
-
-
-  /* CLICK OUTSIDE IMAGE */
-
-  imageViewer.addEventListener(
-    "click",
-    function(event) {
-
-      if (
-        event.target === imageViewer ||
-        event.target === viewerContainer
-      ) {
-
-        closeImageViewer();
-
-      }
-
-    }
-  );
-
-</script>
+  </footer>
 
 
 </body>
