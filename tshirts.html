@@ -58,7 +58,7 @@
 
     .hero {
       text-align: center;
-      padding: 70px 20px 30px;
+      padding: 70px 20px 35px;
     }
 
     .hero h1 {
@@ -71,47 +71,91 @@
       font-size: 18px;
     }
 
-    .coming-soon-section {
-      max-width: 900px;
+    /* PRODUCT GRID */
+
+    .products {
+      max-width: 1200px;
       margin: auto;
-      padding: 40px 20px 100px;
-      text-align: center;
+      padding: 30px 20px 100px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
     }
 
-    .coming-soon-card {
+    .product-card {
       background: #fff;
       border: 1px solid #ddd;
       border-radius: 14px;
-      padding: 70px 30px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+      transition: 0.25s;
     }
 
-    .coming-soon-card h2 {
-      font-size: 34px;
-      margin-bottom: 15px;
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
     }
 
-    .coming-soon-card p {
-      font-size: 18px;
+    .product-image {
+      width: 100%;
+      height: 390px;
+      background: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .product-info {
+      padding: 22px;
+    }
+
+    .product-info h2 {
+      font-size: 21px;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .price {
+      color: #b88a00;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .sizes {
       color: #666;
-      line-height: 1.7;
-      max-width: 600px;
-      margin: 0 auto 30px;
+      font-size: 15px;
+      margin-bottom: 18px;
     }
 
-    .shop-button {
-      display: inline-block;
+    .stock {
+      font-weight: bold;
+      margin-bottom: 18px;
+      color: #222;
+    }
+
+    .view-button {
+      display: block;
+      width: 100%;
       background: #000;
       color: #d4af37;
       text-decoration: none;
-      padding: 15px 35px;
+      padding: 14px;
       border-radius: 6px;
+      text-align: center;
       font-weight: bold;
       border: 2px solid #000;
       transition: 0.3s;
     }
 
-    .shop-button:hover {
+    .view-button:hover {
       background: #d4af37;
       color: #000;
       border-color: #d4af37;
@@ -123,6 +167,16 @@
       text-align: center;
       padding: 25px;
     }
+
+    /* TABLET */
+
+    @media (max-width: 900px) {
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* MOBILE */
 
     @media (max-width: 600px) {
 
@@ -155,26 +209,16 @@
         font-size: 16px;
       }
 
-      .coming-soon-section {
-        padding: 25px 20px 70px;
+      .products {
+        grid-template-columns: 1fr;
+        padding: 20px 20px 70px;
       }
 
-      .coming-soon-card {
-        padding: 50px 20px;
-      }
-
-      .coming-soon-card h2 {
-        font-size: 28px;
-      }
-
-      .coming-soon-card p {
-        font-size: 16px;
-      }
-
-      .shop-button {
-        width: 100%;
+      .product-image {
+        height: 420px;
       }
     }
+
   </style>
 
 </head>
@@ -201,25 +245,44 @@
 
     <h1>T-Shirts</h1>
 
-    <p>Authentic graphic tees and streetwear coming soon.</p>
+    <p>Shop authentic T-shirts and streetwear from First Class Supply.</p>
 
   </section>
 
 
-  <section class="coming-soon-section">
+  <section class="products">
 
-    <div class="coming-soon-card">
+    <!-- T-SHIRT 1 -->
 
-      <h2>COMING SOON</h2>
+    <div class="product-card">
 
-      <p>
-        We're adding new T-shirts and streetwear styles to First Class Supply.
-        Check back soon for new arrivals.
-      </p>
+      <div class="product-image">
+        <img
+          src="true-religion-white-front.png"
+          alt="True Religion Logo Patch T-Shirt White">
+      </div>
 
-      <a href="boxers.html" class="shop-button">
-        SHOP BOXERS
-      </a>
+      <div class="product-info">
+
+        <h2>True Religion Logo Patch T-Shirt - White</h2>
+
+        <div class="price">
+          $34.99
+        </div>
+
+        <div class="sizes">
+          Sizes: M / L
+        </div>
+
+        <div class="stock">
+          ✓ In Stock
+        </div>
+
+        <a href="tshirt1.html" class="view-button">
+          VIEW PRODUCT
+        </a>
+
+      </div>
 
     </div>
 
